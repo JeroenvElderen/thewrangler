@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import styles from "./home/home-page.module.css";
+import styles from "../home/home-page.module.css";
 
 const navItems = [
   { label: "Home", href: "/" },
@@ -13,7 +13,7 @@ const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-export default function SiteHeader() {
+export default function SiteNavbar() {
   const pathname = usePathname();
 
   return (
