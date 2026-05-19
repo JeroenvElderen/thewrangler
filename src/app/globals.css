@@ -185,19 +185,22 @@ button {
   background: var(--red);
   border-color: var(--red);
   color: white;
+  border-radius: 10px;
 }
 
 .btn.red:hover {
-  background: #ff1020;
+  background: rgba(5, 6, 7, 0.4);
 }
 
 .btn.outline {
   background: rgba(5, 6, 7, 0.4);
   color: white;
+  border-color: var(--red);
+  border-radius: 10px;
 }
 
 .btn.outline:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: var(--red);
 }
 
 /* BENEFITS */
@@ -205,17 +208,16 @@ button {
 .benefits {
   display: grid;
   grid-template-columns: 1fr;
-  background: #070a0d;
-  border-top: 1px solid var(--border);
+  background: #05090d;
   border-bottom: 1px solid var(--border);
 }
 
 .benefits div {
   min-height: 94px;
-  padding: 24px 22px;
+  padding: 22px;
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 14px;
   border-bottom: 1px solid var(--border);
 }
 
@@ -230,17 +232,27 @@ button {
   flex-shrink: 0;
 }
 
+.benefits svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 1.9;
+}
+
 .benefits strong {
   display: block;
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
-  font-size: 17px;
+  font-size: 15px;
+  line-height: 1;
+  letter-spacing: 0.2px;
 }
 
 .benefits span {
   display: block;
-  color: var(--muted);
-  font-size: 12px;
+  margin-top: 4px;
+  color: #b1b8be;
+  font-size: 11px;
+  letter-spacing: 0.25px;
   text-transform: uppercase;
 }
 
@@ -296,6 +308,7 @@ button {
   background: linear-gradient(180deg, #11171b, #080b0e);
   border: 1px solid var(--border);
   overflow: hidden;
+  border-radius: 20px;
 }
 
 .car-image {
@@ -364,10 +377,11 @@ button {
 .stats div {
   min-height: 135px;
   padding: 28px;
-  border: 1px solid var(--border);
+  border: 1px solid var(--red);
   display: flex;
   align-items: center;
   gap: 22px;
+  border-radius: 20px;
 }
 
 .stats strong {
@@ -393,6 +407,7 @@ button {
   height: 210px;
   overflow: hidden;
   border: 1px solid var(--border);
+  border-radius: 20px;
 }
 
 .type-card::after {
@@ -567,6 +582,8 @@ button {
 
   .newsletter button {
     padding: 0 34px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
 
   .footer {
@@ -604,6 +621,7 @@ button {
     font-family: Oswald, sans-serif;
     font-weight: 700;
     text-transform: uppercase;
+    border-radius: 20px;
   }
 
   .hero {
@@ -634,19 +652,29 @@ button {
   }
 
   .benefits {
-    grid-template-columns: repeat(4, 1fr);
-    padding: 0 64px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    margin: 0;
   }
 
   .benefits div {
-    min-height: 140px;
-    padding: 0 48px;
+    position: relative;
+    min-height: 128px;
+    padding: 0 34px;
+    justify-content: center;
     border-bottom: 0;
-    border-right: 1px solid var(--border);
+    border-right: 0;
   }
 
-  .benefits div:last-child {
-    border-right: 0;
+  .benefits div:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 1px;
+    height: 58px;
+    background: rgba(255, 255, 255, 0.22);
+    transform: translateY(-50%);
   }
 
   .section {

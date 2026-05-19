@@ -17,7 +17,7 @@ const featuredCars = [
     price: "589 000 kr",
     meta: "18 000 km / Automatic",
     image:
-      "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1600&auto=format&fit=crop",
+      "/car1.png",
   },
   {
     name: "2020 Dodge Challenger",
@@ -25,7 +25,7 @@ const featuredCars = [
     price: "899 000 kr",
     meta: "12 500 km / Automatic",
     image:
-      "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop",
+      "/car2.png",
   },
   {
     name: "2019 Chevrolet",
@@ -33,7 +33,7 @@ const featuredCars = [
     price: "499 000 kr",
     meta: "22 000 km / Automatic",
     image:
-      "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=1600&auto=format&fit=crop",
+      "/car3.png",
   },
   {
     name: "2021 Jeep Grand",
@@ -41,7 +41,7 @@ const featuredCars = [
     price: "699 000 kr",
     meta: "15 000 km / Automatic",
     image:
-      "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1600&auto=format&fit=crop",
+      "/car5.png",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Home() {
       </header>
 
       <section className="hero">
-        <Image src="https://images.unsplash.com/photo-1503736334956-4c8f8e92946d?q=80&w=2000&auto=format&fit=crop" alt="American muscle car" fill priority />
+        <Image src="/header.png" alt="Dodge ram with Swedish and an American flag" fill priority />
 
         <div className="hero-content">
           <p className="kicker">★ Premium American cars, imported to Sweden</p>
