@@ -141,14 +141,16 @@ button {
   margin: 0;
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
-  font-size: clamp(64px, 20vw, 118px);
+  font-size: clamp(38px, 6vw, 86px);
   line-height: 0.88;
   letter-spacing: -2px;
+  white-space: nowrap;
 }
 
 .hero h1 span {
   display: block;
   color: var(--red);
+  white-space: nowrap;
 }
 
 .hero-text {
@@ -634,7 +636,7 @@ button {
   }
 
   .hero h1 {
-    font-size: 112px;
+    font-size: 88px;
   }
 
   .hero-text {
@@ -722,6 +724,6 @@ button {
   }
 
   .hero h1 {
-    font-size: 124px;
+    font-size: 96px;
   }
 }
