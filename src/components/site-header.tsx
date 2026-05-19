@@ -2,6 +2,8 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import styles from "./home/home-page.module.css";
 
 const navItems = [
@@ -15,6 +17,7 @@ const navItems = [
 
 export default function SiteHeader() {
   const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
 
   return (
     <header className={styles.navbar}>
@@ -23,7 +26,15 @@ export default function SiteHeader() {
         <strong>Wrangler</strong>
         <em>American Cars</em>
       </Link>
-      <nav>
+      <button
+        className={styles.menuToggle}
+        aria-label={menuOpen ? "Close menu" : "Open menu"}
+        aria-expanded={menuOpen}
+        onClick={() => setMenuOpen((prev) => !prev)}
+      >
+        {menuOpen ? <X size={20} /> : <Menu size={20} />}
+      </button>
+      <nav className={menuOpen ? styles.mobileNavOpen : undefined}>
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
@@ -31,13 +42,14 @@ export default function SiteHeader() {
               key={item.href}
               href={item.href}
               className={isActive ? styles.activeNavLink : styles.navLink}
+              onClick={() => setMenuOpen(false)}
             >
               {item.label}
             </Link>
           );
         })}
       </nav>
-      <button>View Inventory</button>
+      <button className={styles.inventoryButton}>View Inventory</button>
     </header>
   );
 }
