@@ -9,26 +9,11 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import styles from "./home-page.module.css";
+import SiteHeader from "../site-header";
 import { featuredCars, shopTypes, stats } from "./data";
 
 export function HomeHeader() {
-  return (
-    <header className={styles.navbar}>
-      <div className={styles.logo}>
-        <span>The</span>
-        <strong>Wrangler</strong>
-        <em>American Cars</em>
-      </div>
-      <nav>
-        <a>Cars</a>
-        <a>About Us</a>
-        <a>Services</a>
-        <a>Financing</a>
-        <a>Contact</a>
-      </nav>
-      <button>View Inventory</button>
-    </header>
-  );
+  return <SiteHeader />;
 }
 
 export function HeroSection() {

@@ -50,6 +50,16 @@
   display: none;
 }
 
+.navLink,
+.activeNavLink {
+  transition: color 0.2s ease;
+}
+
+.navLink:hover,
+.activeNavLink {
+  color: var(--red);
+}
+
 /* HERO */
 
 .hero {
