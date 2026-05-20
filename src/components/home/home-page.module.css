@@ -79,9 +79,10 @@
   display: block;
   padding: 10px 8px;
   font-family: Oswald, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   text-transform: uppercase;
+  white-space: nowrap;
   transition: color 0.2s ease;
 }
 
