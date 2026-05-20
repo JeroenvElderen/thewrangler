@@ -8,11 +8,11 @@ import styles from "./home/home-page.module.css";
 
 const navItems = [
   { label: "Home", href: "/" },
-  { label: "Cars", href: "/cars" },
-  { label: "About Us", href: "/about" },
-  { label: "Services", href: "/services" },
-  { label: "Financing", href: "/financing" },
-  { label: "Contact", href: "/contact" },
+  { label: "Om oss", href: "" },
+  { label: "Bilar", href: "" },
+  { label: "Verkstad", href: "" },
+  { label: "Financing", href: "" },
+  { label: "Kontakt", href: "" },
 ];
 
 export default function SiteHeader() {

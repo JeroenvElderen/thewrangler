@@ -150,6 +150,11 @@
   white-space: normal;
 }
 
+.noWrap {
+  display: inline-block;
+  white-space: nowrap;
+}
+
 .heroText {
   max-width: 390px;
   margin: 24px 0 0;
@@ -208,7 +213,7 @@
   display: grid;
   grid-template-columns: 1fr;
   background: #05090d;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--red);
 }
 
 .benefits div {
@@ -249,7 +254,7 @@
 .benefits span {
   display: block;
   margin-top: 4px;
-  color: #b1b8be;
+  color: var(--red);
   font-size: 11px;
   letter-spacing: 0.25px;
   text-transform: uppercase;
@@ -259,7 +264,7 @@
 
 .section {
   padding: 42px 22px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--red);
 }
 
 .section h2,
@@ -358,7 +363,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 34px;
-  border-bottom: 1px solid var(--border);
+  border-bottom: 1px solid var(--red);
 }
 
 .aboutStrip > div:first-child p:not(.redLabel) {
