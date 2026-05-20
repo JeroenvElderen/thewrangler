@@ -85,6 +85,53 @@
   transition: color 0.2s ease;
 }
 
+.dropdown {
+  width: 100%;
+}
+
+.dropdown summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+
+.dropdownArrow {
+  transition: transform 0.2s ease;
+}
+
+.dropdown[open] .dropdownArrow {
+  transform: rotate(180deg);
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-left: 12px;
+}
+
+.dropdownLink,
+.activeDropdownLink {
+  display: block;
+  padding: 8px;
+  font-family: Oswald, sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dropdownLink:hover,
+.activeDropdownLink {
+  color: var(--red);
+}
+
 .inventoryButton {
   display: none;
 }
@@ -153,6 +200,7 @@
 .noWrap {
   display: inline-block;
   white-space: nowrap;
+  color: #e3e7ea !important;
 }
 
 .heroText {
@@ -381,7 +429,7 @@
 .stats div {
   min-height: 135px;
   padding: 28px;
-  border: 1px solid var(--red);
+  border: 1px solid var(--border);
   display: flex;
   align-items: center;
   gap: 22px;
@@ -614,6 +662,37 @@
     font-size: 14px;
     font-weight: 700;
     text-transform: uppercase;
+  }
+
+  .dropdown {
+    position: relative;
+    width: auto;
+  }
+
+  .dropdown summary {
+    padding: 10px 8px;
+  }
+
+  .dropdownMenu {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    min-width: 190px;
+    margin-left: 0;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: rgba(5, 6, 7, 0.98);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(6px);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .dropdown[open] .dropdownMenu {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
   }
 
   .menuToggle {
