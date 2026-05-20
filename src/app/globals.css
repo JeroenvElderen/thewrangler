@@ -13,6 +13,11 @@
   box-sizing: border-box;
 }
 
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
 html,
 body {
   margin: 0;
