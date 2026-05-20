@@ -7,29 +7,29 @@ export function BenefitsSection() {
       <div>
         <Car />
         <p>
-          <strong>Handpicked</strong>
-          <span>Quality cars</span>
+          <strong>Handplockade</strong>
+          <span>Kvalitetsbilar</span>
         </p>
       </div>
       <div>
         <ShieldCheck />
         <p>
-          <strong>Fair Prices</strong>
-          <span>Honest deals</span>
+          <strong>Rättvisa priser</strong>
+          <span>Ärliga erbjudanden</span>
         </p>
       </div>
       <div>
         <BadgeCheck />
         <p>
-          <strong>Full Transparency</strong>
-          <span>No surprises</span>
+          <strong>Full transparens</strong>
+          <span>Inga överraskningar</span>
         </p>
       </div>
       <div>
         <Settings />
         <p>
-          <strong>After-Sale Support</strong>
-          <span>We’re here for you</span>
+          <strong>Support efter försäljning</strong>
+          <span>Vi finns här för dig</span>
         </p>
       </div>
     </section>

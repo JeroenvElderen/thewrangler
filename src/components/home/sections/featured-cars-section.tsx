@@ -6,8 +6,8 @@ export function FeaturedCarsSection() {
   return (
     <section className={styles.section}>
       <div className={styles.sectionHead}>
-        <h2>Featured Cars</h2>
-        <a>View All Cars ›</a>
+        <h2>Utvalda bilar</h2>
+        <a>Visa alla bilar ›</a>
       </div>
       <div className={styles.carGrid}>
         {featuredCars.map((car) => (

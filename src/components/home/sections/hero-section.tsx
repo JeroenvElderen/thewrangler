@@ -6,23 +6,23 @@ export function HeroSection() {
     <section className={styles.hero}>
       <Image
         src="/header.png"
-        alt="Dodge ram with Swedish and an American flag"
+        alt="Dodge Ram med svensk och amerikansk flagga"
         fill
         priority
       />
       <div className={styles.heroContent}>
-        <p className={styles.kicker}>★ Premium American cars, imported to Sweden</p>
+        <p className={styles.kicker}>★ Premium amerikanska bilar, importerade till Sverige</p>
         <h1>
           <span className={styles.noWrap}>American Power.</span>
-          <span>Swedish Roads.</span>
+          <span>Svenska vägar.</span>
         </h1>
         <p className={styles.heroText}>
-          We import and sell high-quality American cars and trucks — built for
-          performance, made to stand out.
+          Vi importerar och säljer högkvalitativa amerikanska bilar och pickuper —
+          byggda för prestanda och för att sticka ut.
         </p>
         <div className={styles.heroButtons}>
-          <a className={`${styles.btn} ${styles.red}`}>View Cars</a>
-          <a className={`${styles.btn} ${styles.outline}`}>Our Story</a>
+          <a className={`${styles.btn} ${styles.red}`}>Visa bilar</a>
+          <a className={`${styles.btn} ${styles.outline}`}>Vår historia</a>
         </div>
       </div>
     </section>

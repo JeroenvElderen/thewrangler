@@ -7,26 +7,24 @@ export function HomeFooter() {
       <div className={styles.logo}>
         <span>The</span>
         <strong>Wrangler</strong>
-        <em>American Cars</em>
+        <em>Amerikanska bilar</em>
       </div>
       <div>
-        <h4>Quick Links</h4>
-        <a>Cars</a>
-        <a>About Us</a>
-        <a>Services</a>
-        <a>Financing</a>
-        <a>Contact</a>
+        <h4>Snabblänkar</h4>
+        <a>Bilar</a>
+        <a>Om Oss</a>
+        <a>Kontakt</a>
       </div>
       <div>
-        <h4>Services</h4>
+        <h4>Tjänster</h4>
         <a>Import</a>
-        <a>Sales</a>
-        <a>Financing</a>
-        <a>Delivery</a>
-        <a>Warranty</a>
+        <a>Försäljning</a>
+        <a>Finansiering</a>
+        <a>Leverans</a>
+        <a>Garanti</a>
       </div>
       <div>
-        <h4>Contact Us</h4>
+        <h4>Kontakta oss</h4>
         <p>
           <Phone size={14} /> +46 70 123 45 67
         </p>

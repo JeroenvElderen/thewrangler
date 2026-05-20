@@ -6,13 +6,11 @@ export function AboutSection() {
     <section className={styles.aboutStrip}>
       <div>
         <p className={styles.redLabel}>The Wrangler</p>
-        <h2>More Than Just A Car Dealer</h2>
+        <h2>Mer än bara en bilhandlare</h2>
         <p>
-          We’re passionate about American cars. From classic legends to modern
-          performance machines — we bring you the best, carefully selected and
-          delivered with pride.
+          Vi brinner för amerikanska bilar. Från klassiska legender till moderna prestandamaskiner – vi ger dig det bästa, noggrant utvalt och levererat med stolthet.
         </p>
-        <a className={`${styles.btn} ${styles.outline}`}>About Us</a>
+        <a className={`${styles.btn} ${styles.outline}`}>Om oss</a>
       </div>
       <div className={styles.stats}>
         {stats.map(({ icon: Icon, value, label }) => (

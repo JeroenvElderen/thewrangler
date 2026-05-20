@@ -60,7 +60,7 @@ export default function SiteHeader() {
       <Link href="/" className={styles.logo}>
         <span>The</span>
         <strong>Wrangler</strong>
-        <em>American Cars</em>
+        <em>Amerikanska bilar</em>
       </Link>
       <button
         className={styles.menuToggle}
@@ -121,7 +121,7 @@ export default function SiteHeader() {
           );
         })}
       </nav>
-      <button className={styles.inventoryButton}>View Inventory</button>
+      <button className={styles.inventoryButton}>Visa lager</button>
     </header>
   );
 }

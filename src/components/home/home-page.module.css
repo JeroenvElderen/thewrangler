@@ -161,6 +161,14 @@
   position: absolute;
   inset: 0;
   z-index: 1;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(5, 6, 7, 0.42) 0%,
+      rgba(5, 6, 7, 0.2) 30%,
+      rgba(5, 6, 7, 0.52) 68%,
+      rgba(5, 6, 7, 0.78) 100%
+    );
 }
 
 .heroContent {
@@ -253,6 +261,43 @@
 
 .btn.outline:hover {
   background: var(--red);
+}
+
+@media (max-width: 420px) {
+  .navbar {
+    padding: 24px 20px 18px;
+  }
+
+  .hero {
+    min-height: 780px;
+    padding: 168px 20px 72px;
+  }
+
+  .heroText {
+    margin-top: 26px;
+    max-width: 34ch;
+    font-size: 16px;
+    line-height: 1.65;
+    text-wrap: balance;
+  }
+
+  .heroButtons {
+    margin-top: 42px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .btn {
+    width: 100%;
+    min-width: 0;
+    height: 58px;
+  }
+
+  .btn.outline {
+    background: rgba(5, 6, 7, 0.62);
+    border-color: var(--red);
+  }
 }
 
 /* BENEFITS */

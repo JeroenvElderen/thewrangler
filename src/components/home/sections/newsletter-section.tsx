@@ -10,15 +10,14 @@ export function NewsletterSection() {
         fill
       />
       <div>
-        <p className={styles.redLabel}>Stay Updated</p>
-        <h2>Get New Cars & Offers</h2>
+        <p className={styles.redLabel}>Håll dig uppdaterad</p>
+        <h2>Få nya bilar och erbjudanden</h2>
         <p>
-          Subscribe to our newsletter and be the first to know about new
-          arrivals and exclusive offers.
+          Prenumerera på vårt nyhetsbrev och var först med att veta om nya varor och exklusiva erbjudanden.
         </p>
         <form>
-          <input placeholder="Your email address" />
-          <button>Subscribe</button>
+          <input placeholder="Din e-postadress" />
+          <button>Prenumerera</button>
         </form>
       </div>
     </section>

@@ -5,7 +5,7 @@ import { shopTypes } from "../data";
 export function ShopByTypeSection() {
   return (
     <section className={styles.section}>
-      <h2>Shop By Type</h2>
+      <h2>Handla efter typ</h2>
       <div className={styles.typeGrid}>
         {shopTypes.map((item) => {
           const Icon = item.icon;
