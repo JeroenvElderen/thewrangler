@@ -261,7 +261,7 @@
   display: grid;
   grid-template-columns: 1fr;
   background: #05090d;
-  border-bottom: 1px solid var(--red);
+  border-bottom: 1px solid var(--border);
 }
 
 .benefits div {
@@ -312,7 +312,7 @@
 
 .section {
   padding: 42px 22px;
-  border-bottom: 1px solid var(--red);
+  border-bottom: 1px solid var(--border);
 }
 
 .section h2,
@@ -411,7 +411,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 34px;
-  border-bottom: 1px solid var(--red);
+  border-bottom: 1px solid var(--border);
 }
 
 .aboutStrip > div:first-child p:not(.redLabel) {
@@ -717,11 +717,11 @@
   }
 
   .heroContent {
-    max-width: 670px;
+    max-width: min(740px, 58vw);
   }
 
   .hero h1 {
-    font-size: 88px;
+    font-size: clamp(72px, 4.8vw, 88px);
   }
 
   .heroText {
