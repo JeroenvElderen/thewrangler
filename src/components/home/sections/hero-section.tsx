@@ -17,9 +17,14 @@ export function HeroSection() {
           <span>Svenska vägar.</span>
         </h1>
         <p className={styles.heroText}>
-          Vi importerar och säljer högkvalitativa amerikanska bilar och pickuper —
-          byggda för prestanda och för att sticka ut.
+          Exklusivt urval av amerikanska bilar och pickuper — noggrant utvalda för
+          prestanda, komfort och en premiumkänsla i varje detalj.
         </p>
+        <div className={styles.heroTrustRow}>
+          <span>Verifierad historik</span>
+          <span>Premium-spec</span>
+          <span>Leverans i hela Sverige</span>
+        </div>
         <div className={styles.heroButtons}>
           <a className={`${styles.btn} ${styles.red}`}>Visa bilar</a>
           <a className={`${styles.btn} ${styles.outline}`}>Vår historia</a>

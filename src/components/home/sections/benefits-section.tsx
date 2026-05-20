@@ -7,29 +7,29 @@ export function BenefitsSection() {
       <div>
         <Car />
         <p>
-          <strong>Handplockade</strong>
-          <span>Kvalitetsbilar</span>
+          <strong>Handplockat premiumurval</strong>
+          <span>Endast modeller vi själva står bakom</span>
         </p>
       </div>
       <div>
         <ShieldCheck />
         <p>
-          <strong>Rättvisa priser</strong>
-          <span>Ärliga erbjudanden</span>
+          <strong>Trygg affär</strong>
+          <span>Tydliga villkor och transparent process</span>
         </p>
       </div>
       <div>
         <BadgeCheck />
         <p>
-          <strong>Full transparens</strong>
-          <span>Inga överraskningar</span>
+          <strong>Dokumenterad kvalitet</strong>
+          <span>Historik, skick och specifikation i fokus</span>
         </p>
       </div>
       <div>
         <Settings />
         <p>
-          <strong>Support efter försäljning</strong>
-          <span>Vi finns här för dig</span>
+          <strong>Personlig service</strong>
+          <span>Rådgivning före, under och efter köp</span>
         </p>
       </div>
     </section>

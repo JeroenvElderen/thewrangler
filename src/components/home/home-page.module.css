@@ -219,6 +219,25 @@
   line-height: 1.8;
 }
 
+.heroTrustRow {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.heroTrustRow span {
+  padding: 7px 11px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  background: rgba(7, 9, 11, 0.55);
+  color: #d9e0e6;
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.55px;
+  font-size: 11px;
+}
+
 .heroButtons {
   margin-top: 34px;
   display: flex;
@@ -246,6 +265,7 @@
   border-color: var(--red);
   color: white;
   border-radius: 10px;
+  box-shadow: 0 12px 28px rgba(179, 9, 18, 0.3);
 }
 
 .btn.red:hover {
@@ -316,6 +336,7 @@
   align-items: center;
   gap: 14px;
   border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
 }
 
 .benefits div:last-child {

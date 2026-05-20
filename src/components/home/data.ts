@@ -9,15 +9,15 @@ export const featuredCars: FeaturedCar[] = [
 ];
 
 export const shopTypes: ShopType[] = [
-  { title: "Muskelbilar", image: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1600&auto=format&fit=crop", icon: Car },
-  { title: "Pickupbilar", image: "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=1600&auto=format&fit=crop", icon: BadgeCheck },
-  { title: "SUV:ar", image: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?q=80&w=1600&auto=format&fit=crop", icon: ShieldCheck },
-  { title: "Klassiker", image: "https://images.unsplash.com/photo-1489824904134-891ab64532f1?q=80&w=1600&auto=format&fit=crop", icon: Settings },
+  { title: "Full-size pickuper", image: "/dodge5.png", icon: Car },
+  { title: "Mid-size pickuper", image: "/gmc.png", icon: BadgeCheck },
+  { title: "Heavy Duty", image: "/ford1.png", icon: ShieldCheck },
+  { title: "Offroad & 4x4", image: "/chevrolet.png", icon: Settings },
 ];
 
 export const stats: StatItem[] = [
-  { icon: Car, value: "500+", label: "Importerade bilar" },
-  { icon: Settings, value: "10+", label: "Års erfarenhet" },
-  { icon: Star, value: "100%", label: "Passion" },
-  { icon: ShieldCheck, value: "0", label: "Kompromisser" },
+  { icon: Car, value: "500+", label: "Levererade USA-bilar" },
+  { icon: Settings, value: "10+", label: "År av erfarenhet" },
+  { icon: Star, value: "4.9/5", label: "Kundnöjdhet" },
+  { icon: ShieldCheck, value: "100%", label: "Fokus på kvalitet" },
 ];
