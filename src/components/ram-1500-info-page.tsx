@@ -50,7 +50,7 @@ function getHeroHighlights(page: RamInfoPage) {
     {
       icon: BadgeDollarSign,
       title: "Rätt val",
-      text: "Välj den RAM 1500-nivå som matchar din körning.",
+      text: `Välj den ${page.model}-nivå som matchar din körning.`,
     },
   ];
 }
@@ -61,6 +61,9 @@ type Ram1500InfoPageProps = {
 
 export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
   const heroHighlights = getHeroHighlights(page);
+  const heroBackdrop = page.model.toLowerCase().includes("chevrolet")
+    ? page.images.heroTruck
+    : "/dodge2.png";
 
   return (
     <main className={styles.site}>
@@ -68,7 +71,7 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
 
       <section className={styles.hero}>
         <Image
-          src="/dodge2.png"
+          src={heroBackdrop}
           alt="Mörkt bergslandskap bakom en amerikansk pickup"
           fill
           priority
