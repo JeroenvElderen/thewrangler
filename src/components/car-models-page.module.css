@@ -219,27 +219,24 @@
 }
 
 .modelCard {
-  min-height: 346px;
+  min-height: 360px;
   border: 1px solid rgba(255, 255, 255, 0.16);
   background: #05080a;
   overflow: hidden;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.38);
-}
-
-.modelCard:nth-child(7n),
-.modelCard:nth-child(7n - 1) {
-  grid-column: span 1;
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.38),
+    0 16px 42px rgba(0, 0, 0, 0.28);
 }
 
 .modelCard a {
   min-height: inherit;
   display: grid;
-  grid-template-rows: 58% 42%;
+  grid-template-rows: minmax(204px, 58%) 1fr;
 }
 
 .cardImage {
   position: relative;
-  min-height: 198px;
+  min-height: 204px;
   overflow: hidden;
 }
 
@@ -256,31 +253,53 @@
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(2, 3, 4, 0.02) 0%, rgba(2, 3, 4, 0.16) 48%, rgba(2, 3, 4, 0.72) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.28), transparent 48%);
+    linear-gradient(180deg, rgba(2, 3, 4, 0.02) 0%, rgba(2, 3, 4, 0.12) 44%, rgba(2, 3, 4, 0.7) 100%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 50%);
 }
 
 .cardBody {
   position: relative;
   display: grid;
-  grid-template-columns: 72px minmax(0, 1fr);
+  min-height: 156px;
+  grid-template-columns: 64px minmax(0, 1fr);
+  align-items: start;
   gap: 14px;
-  padding: 22px 22px 20px;
-  background: linear-gradient(180deg, rgba(5, 8, 10, 0.92), rgba(2, 4, 6, 1));
+  padding: 24px 22px 22px;
+  background:
+    linear-gradient(180deg, rgba(5, 8, 10, 0.96), rgba(2, 4, 6, 1)),
+    radial-gradient(circle at 14% 0%, rgba(0, 102, 214, 0.18), transparent 9rem);
 }
 
 .hexIcon {
-  width: 56px;
+  position: relative;
+    width: 56px;
   height: 62px;
   display: grid;
   place-items: center;
-  border: 2px solid #006fe8;
   color: #1387ff;
+  filter: drop-shadow(0 0 14px rgba(0, 102, 214, 0.24));
+}
+
+.hexIcon::before,
+.hexIcon::after {
+  position: absolute;
+  content: "";
   clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
-  filter: drop-shadow(0 0 14px rgba(0, 102, 214, 0.22));
+}
+
+.hexIcon::before {
+  inset: 0;
+  background: #006fe8;
+}
+
+.hexIcon::after {
+  inset: 2px;
+  background: #061018;
 }
 
 .hexIcon svg {
+    position: relative;
+  z-index: 1;
   width: 25px;
   height: 25px;
   stroke-width: 1.8;
@@ -291,15 +310,13 @@
 }
 
 .cardCopy p {
-  margin-bottom: 4px;
-  font-size: 0.72rem;
-  color: #7ebeff;
+  display: none;
 }
 
 .cardCopy h4 {
   margin: 0 0 9px;
   font-family: Oswald, sans-serif;
-  font-size: clamp(1.75rem, 2.4vw, 2.45rem);
+  font-size: clamp(1.75rem, 2.35vw, 2.45rem);
   line-height: 0.94;
   text-transform: uppercase;
   letter-spacing: -0.035em;
@@ -309,7 +326,7 @@
   display: -webkit-box;
   min-height: 44px;
   overflow: hidden;
-  color: #c3ccd5;
+  color: #cfd8e1;
   font-size: 0.92rem;
   line-height: 1.5;
   -webkit-line-clamp: 2;
@@ -401,21 +418,6 @@
   letter-spacing: 0.05em;
 }
 
-@media (min-width: 980px) {
-  .brandGroup:first-child .modelCard:nth-last-child(-n + 2) {
-    min-height: 282px;
-  }
-
-  .brandGroup:first-child .modelCard:nth-last-child(-n + 2) a {
-    grid-template-columns: 52% 48%;
-    grid-template-rows: 1fr;
-  }
-
-  .brandGroup:first-child .modelCard:nth-last-child(-n + 2) .cardImage {
-    min-height: 100%;
-  }
-}
-
 @media (max-width: 1160px) {
   .cardGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -457,7 +459,8 @@
   }
 
   .cardBody {
-    grid-template-columns: 62px minmax(0, 1fr);
+    min-height: 150px;
+    grid-template-columns: 58px minmax(0, 1fr);
     padding: 20px 18px;
   }
 
