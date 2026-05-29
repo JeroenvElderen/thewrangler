@@ -1,27 +1,19 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Ram1500InfoPage from "@/components/ram-1500-info-page";
-import { getRam1500Page, ram1500Pages } from "@/data/ram-1500-pages";
-import { getSilveradoPage, silveradoPages } from "@/data/silverado-pages";
-import {
-  getJeepWranglerPage,
-  jeepWranglerPages,
-} from "@/data/jeep-wrangler-pages";
+import { carInfoPages, getCarInfoPage } from "@/data/car-info-pages";
 
 export function generateStaticParams() {
-  return [...ram1500Pages, ...silveradoPages, ...jeepWranglerPages].map(
-    (page) => ({
-      slug: page.slug,
-    }),
-  );
+  return carInfoPages.map((page) => ({
+    slug: page.slug,
+  }));
 }
 
 export async function generateMetadata({
   params,
 }: PageProps<"/cars/[slug]">): Promise<Metadata> {
   const { slug } = await params;
-  const page =
-    getRam1500Page(slug) ?? getSilveradoPage(slug) ?? getJeepWranglerPage(slug);
+  const page = getCarInfoPage(slug);
 
   if (!page) {
     return {};
@@ -37,8 +29,7 @@ export default async function CarSlugPage({
   params,
 }: PageProps<"/cars/[slug]">) {
   const { slug } = await params;
-  const page =
-    getRam1500Page(slug) ?? getSilveradoPage(slug) ?? getJeepWranglerPage(slug);
+  const page = getCarInfoPage(slug);
 
   if (!page) {
     notFound();

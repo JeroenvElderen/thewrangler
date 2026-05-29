@@ -20,10 +20,10 @@ const navItems: NavItem[] = [
     label: "Fordon",
     href: "",
     children: [
-      { label: "SUV", href: "" },
-      { label: "Sedan", href: "" },
-      { label: "Pickup", href: "" },
-      { label: "Sportbil", href: "" },
+      { label: "Model guides", href: "/cars" },
+      { label: "Inventory", href: "/stock" },
+      { label: "Pickup", href: "/cars" },
+      { label: "Offroad & 4x4", href: "/cars" },
     ],
   },
   { label: "Verkstad", href: "" },
@@ -127,7 +127,7 @@ export default function SiteHeader() {
           );
         })}
       </nav>
-      <button className={styles.inventoryButton}>Visa lager</button>
+      <Link href="/stock" className={styles.inventoryButton}>Visa lager</Link>
     </header>
   );
 }
