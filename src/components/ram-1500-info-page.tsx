@@ -40,12 +40,16 @@ function getHeroHighlights(page: RamInfoPage) {
     {
       icon: Headphones,
       title: "Stor kapacitet",
-      text: page.performanceGroups[1]?.items[0] ?? "Kraft för både arbete och vardag.",
+      text:
+        page.performanceGroups[1]?.items[0] ??
+        "Kraft för både arbete och vardag.",
     },
     {
       icon: Mountain,
       title: "Klarar Norden",
-      text: page.performanceGroups[2]?.items[0] ?? "Anpassad för varierande vägförhållanden.",
+      text:
+        page.performanceGroups[2]?.items[0] ??
+        "Anpassad för varierande vägförhållanden.",
     },
     {
       icon: BadgeDollarSign,
@@ -61,9 +65,9 @@ type Ram1500InfoPageProps = {
 
 export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
   const heroHighlights = getHeroHighlights(page);
-  const heroBackdrop = page.model.toLowerCase().includes("chevrolet")
-    ? page.images.heroTruck
-    : "/dodge2.png";
+  const heroBackdrop = page.model.toLowerCase().includes("ram")
+    ? "/dodge2.png"
+    : page.images.heroTruck;
 
   return (
     <main className={styles.site}>
@@ -72,7 +76,7 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
       <section className={styles.hero}>
         <Image
           src={heroBackdrop}
-          alt="Mörkt bergslandskap bakom en amerikansk pickup"
+          alt="Mörkt bergslandskap bakom ett amerikanskt fordon"
           fill
           priority
           sizes="100vw"
@@ -81,8 +85,13 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
         <div className={styles.heroShade} />
         <div className={styles.heroInner}>
           <div className={styles.heroCopy}>
-            <p className={styles.breadcrumb}>Cars <span>/</span> {page.model} {page.trim}</p>
-            <h1>{page.model}<span>{page.trim}</span></h1>
+            <p className={styles.breadcrumb}>
+              Cars <span>/</span> {page.model} {page.trim}
+            </p>
+            <h1>
+              {page.model}
+              <span>{page.trim}</span>
+            </h1>
             <h2>{page.headline}</h2>
             <p>{page.intro}</p>
           </div>
@@ -111,7 +120,10 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
           ))}
           <ul className={styles.checkList}>
             {page.whatBullets.map((fact) => (
-              <li key={fact}><CheckCircle2 aria-hidden="true" />{fact}</li>
+              <li key={fact}>
+                <CheckCircle2 aria-hidden="true" />
+                {fact}
+              </li>
             ))}
           </ul>
           <p>{page.whatClosing}</p>
@@ -124,7 +136,9 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
             <div key={group.title} className={styles.specGroup}>
               <h3>{group.title}</h3>
               <ul className={styles.dotList}>
-                {group.items.map((item) => <li key={item}>{item}</li>)}
+                {group.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
               </ul>
             </div>
           ))}
@@ -132,7 +146,12 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
 
         <aside className={styles.imagePanel}>
           <div className={styles.galleryImage}>
-            <Image src={page.images.gallery} alt={`${page.model} ${page.trim} i mörk miljö`} fill sizes="(max-width: 900px) 100vw, 34vw" />
+            <Image
+              src={page.images.gallery}
+              alt={`${page.model} ${page.trim} i mörk miljö`}
+              fill
+              sizes="(max-width: 900px) 100vw, 34vw"
+            />
           </div>
           <div className={styles.conclusion}>
             <h2>Slutsats</h2>
@@ -155,8 +174,14 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
                 <Icon aria-hidden="true" />
                 <h3>{group.title}</h3>
                 <p>(standard)</p>
-                <ul>{group.items.map((item) => <li key={item}>{item}</li>)}</ul>
-                {group.note ? <p className={styles.equipmentNote}>{group.note}</p> : null}
+                <ul>
+                  {group.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                {group.note ? (
+                  <p className={styles.equipmentNote}>{group.note}</p>
+                ) : null}
               </article>
             );
           })}
@@ -167,27 +192,78 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
       </section>
 
       <section className={styles.ctaBand}>
-        <Image src={page.images.cta} alt={`${page.model} ${page.trim} i dramatisk miljö`} fill sizes="100vw" />
+        <Image
+          src={page.images.cta}
+          alt={`${page.model} ${page.trim} i dramatisk miljö`}
+          fill
+          sizes="100vw"
+        />
         <div>
           <h2>{page.ctaTitle}</h2>
           <p>{page.ctaText}</p>
         </div>
         <div className={styles.ctaActions}>
-          <Link href="/contact" className={styles.primaryButton}>Boka rådgivning</Link>
-          <Link href="/contact" className={styles.secondaryButton}>Kontakta oss <ChevronRight aria-hidden="true" /></Link>
+          <Link href="/contact" className={styles.primaryButton}>
+            Boka rådgivning
+          </Link>
+          <Link href="/contact" className={styles.secondaryButton}>
+            Kontakta oss <ChevronRight aria-hidden="true" />
+          </Link>
         </div>
       </section>
 
       <footer className={styles.footer}>
         <div className={styles.footerBrand}>
-          <Image src="/Wrangler_Logo.svg" alt="The Wrangler" width={170} height={100} />
-          <p>American trucks. Imported for passion. Built for the road ahead.</p>
+          <Image
+            src="/Wrangler_Logo.svg"
+            alt="The Wrangler"
+            width={170}
+            height={100}
+          />
+          <p>
+            American trucks. Imported for passion. Built for the road ahead.
+          </p>
         </div>
-        <div><h3>Quick links</h3><Link href="/stock">Cars</Link><Link href="/about">About us</Link><Link href="/services">Services</Link><Link href="/financing">Financing</Link><Link href="/contact">Contact</Link></div>
-        <div><h3>Services</h3><a>Buy/Sell</a><a>Trade-in</a><a>Financing</a><a>Delivery</a></div>
-        <div><h3>Workshop</h3><a>Repairs</a><a>Maintenance</a><a>Diagnostics</a><a>Performance</a></div>
-        <div><h3>Contact us</h3><p><Phone aria-hidden="true" /> +46 70 123 45 67</p><p><Wrench aria-hidden="true" /> info@thewrangler.se</p><p><CarFront aria-hidden="true" /> Falkenberg, Sweden</p></div>
-        <div><h3>Opening hours</h3><p>Mon - Fri: 08:00 - 17:00</p><p>Saturday: 09:00 - 14:00</p><p>Sunday: Closed</p></div>
+        <div>
+          <h3>Quick links</h3>
+          <Link href="/stock">Cars</Link>
+          <Link href="/about">About us</Link>
+          <Link href="/services">Services</Link>
+          <Link href="/financing">Financing</Link>
+          <Link href="/contact">Contact</Link>
+        </div>
+        <div>
+          <h3>Services</h3>
+          <a>Buy/Sell</a>
+          <a>Trade-in</a>
+          <a>Financing</a>
+          <a>Delivery</a>
+        </div>
+        <div>
+          <h3>Workshop</h3>
+          <a>Repairs</a>
+          <a>Maintenance</a>
+          <a>Diagnostics</a>
+          <a>Performance</a>
+        </div>
+        <div>
+          <h3>Contact us</h3>
+          <p>
+            <Phone aria-hidden="true" /> +46 70 123 45 67
+          </p>
+          <p>
+            <Wrench aria-hidden="true" /> info@thewrangler.se
+          </p>
+          <p>
+            <CarFront aria-hidden="true" /> Falkenberg, Sweden
+          </p>
+        </div>
+        <div>
+          <h3>Opening hours</h3>
+          <p>Mon - Fri: 08:00 - 17:00</p>
+          <p>Saturday: 09:00 - 14:00</p>
+          <p>Sunday: Closed</p>
+        </div>
       </footer>
     </main>
   );
