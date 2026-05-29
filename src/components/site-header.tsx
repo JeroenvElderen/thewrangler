@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { ChevronDown, Menu, X } from "lucide-react";
@@ -14,7 +15,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Om oss", href: "" },
+  { label: "Om oss", href: "/about" },
   {
     label: "Fordon",
     href: "",
@@ -57,10 +58,15 @@ export default function SiteHeader() {
 
   return (
     <header ref={headerRef} className={styles.navbar}>
-      <Link href="/" className={styles.logo}>
-        <span>The</span>
-        <strong>Wrangler</strong>
-        <em>Amerikanska bilar</em>
+      <Link href="/" className={styles.logo} aria-label="The Wrangler">
+        <Image
+          src="/Wrangler_Logo.svg"
+          alt="The Wrangler"
+          width={150}
+          height={100}
+          priority
+          className={styles.logoImage}
+        />
       </Link>
       <button
         className={styles.menuToggle}

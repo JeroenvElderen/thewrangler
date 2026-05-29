@@ -43,7 +43,7 @@ export default function StockPage() {
             Built for performance. Chosen for quality.
           </p>
         </div>
-      </section>
+      </section> 
 
       <section className={styles.content}>
         <div className={styles.toolbar}>

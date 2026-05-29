@@ -135,7 +135,8 @@
   color: #b1b8be;
   font-size: 11px;
   letter-spacing: 0.25px;
-  text-transform: uppercase;
+  text-transform: none;
+  line-height: 1.35;
 }
 
 .story {
@@ -204,7 +205,10 @@
 .teamIntro p,
 .member p,
 .promiseIntro p,
-.family p {
+.family p,
+.sectionIntro p,
+.infoCard p,
+.productCard p {
   margin: 0;
   color: #d5dbe0;
   font-size: 14px;
@@ -220,13 +224,65 @@
   border-bottom: 1px solid var(--border);
 }
 
+.experience,
+.products {
+  padding: 42px 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.experience {
+  background: radial-gradient(circle at top left, rgba(190, 27, 38, 0.16), transparent 34%), #07090c;
+}
+
+.products {
+  background: #050607;
+}
+
+.sectionIntro {
+  max-width: 760px;
+}
+
+.infoGrid,
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.infoCard,
+.productCard {
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, #11171b, #080b0e);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.infoCard svg,
+.productCard svg {
+  color: var(--red);
+  width: 28px;
+  height: 28px;
+  margin-bottom: 18px;
+}
+
+.infoCard h3,
+.productCard h3 {
+  margin: 0 0 10px;
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  font-size: 26px;
+  line-height: 1;
+}
+
 .teamIntro {
   padding: 42px 22px;
 }
 
 .teamIntro h2,
 .promiseIntro h2,
-.family h2 {
+.family h2,
+.sectionIntro h2 {
   margin: 0 0 18px;
   font-family: Oswald, sans-serif;
   text-transform: uppercase;
@@ -354,6 +410,8 @@
   .storyLeft,
   .teamIntro,
   .teamGrid,
+  .experience,
+  .products,
   .promise,
   .family {
     padding-left: 42px;
@@ -372,7 +430,9 @@
     border-right: 0;
   }
 
-  .teamGrid {
+  .teamGrid,
+  .infoGrid,
+  .productGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -381,6 +441,8 @@
   .hero,
   .storyLeft,
   .teamIntro,
+  .experience,
+  .products,
   .promise,
   .family {
     padding-left: 64px;
@@ -397,7 +459,7 @@
   }
 
   .values {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
   }
 
   .valueCard {
@@ -437,6 +499,14 @@
 
   .teamGrid {
     padding: 22px 64px 22px 0;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .infoGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .productGrid {
     grid-template-columns: repeat(4, 1fr);
   }
 

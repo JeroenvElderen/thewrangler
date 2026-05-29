@@ -5,7 +5,7 @@ export function HeroSection() {
   return (
     <section className={styles.hero}>
       <Image
-        src="/header.png"
+        src="/gmc-header.png"
         alt="Dodge Ram med svensk och amerikansk flagga"
         fill
         priority
