@@ -1,22 +1,23 @@
 import Image from "next/image";
+import Link from "next/link";
 import styles from "../home-page.module.css";
-import { shopTypes } from "../data";
+import { shopBrands } from "../data";
 
-export function ShopByTypeSection() {
+export function ShopByBrandSection() {
   return (
     <section className={styles.section}>
-      <h2>Handla efter typ</h2>
+      <h2>Handla efter märke</h2>
       <div className={styles.typeGrid}>
-        {shopTypes.map((item) => {
+        {shopBrands.map((item) => {
           const Icon = item.icon;
           return (
-            <article className={styles.typeCard} key={item.title}>
+            <Link className={styles.typeCard} href={item.href} key={item.title}>
               <Image src={item.image} alt={item.title} fill />
               <div>
-                <Icon />
+                <Icon aria-hidden="true" />
                 <h3>{item.title}</h3>
               </div>
-            </article>
+            </Link>
           );
         })}
       </div>

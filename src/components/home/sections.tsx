@@ -5,4 +5,4 @@ export { HeroSection } from "./sections/hero-section";
 export { HomeFooter } from "./sections/home-footer";
 export { HomeHeader } from "./sections/home-header";
 export { NewsletterSection } from "./sections/newsletter-section";
-export { ShopByTypeSection } from "./sections/shop-by-type-section";
+export { ShopByBrandSection } from "./sections/shop-by-brand-section";

@@ -8,10 +8,11 @@ export type FeaturedCar = {
   image: string;
 };
 
-export type ShopType = {
+export type ShopBrand = {
   title: string;
   image: string;
   icon: LucideIcon;
+  href: string;
 };
 
 export type StatItem = {

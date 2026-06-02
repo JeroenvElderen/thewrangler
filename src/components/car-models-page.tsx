@@ -5,12 +5,8 @@ import Link from "next/link";
 import {
   ArrowRight,
   BadgeCheck,
-  Crown,
-  Diamond,
   Gauge,
-  Hammer,
   Mountain,
-  ShieldCheck,
   Sparkles,
   Truck,
   type LucideIcon,
@@ -27,22 +23,16 @@ const brandIcons: Record<string, LucideIcon> = {
   Jeep: Mountain,
 };
 
-const trimIcons: LucideIcon[] = [
-  Hammer,
-  Crown,
-  Truck,
-  Mountain,
-  Diamond,
-  BadgeCheck,
-  ShieldCheck,
-];
-
 type CarModelsPageProps = {
   families: CarModelFamily[];
+  initialBrand?: string;
 };
 
-export default function CarModelsPage({ families }: CarModelsPageProps) {
-  const [activeBrand, setActiveBrand] = useState("All");
+export default function CarModelsPage({
+  families,
+  initialBrand = "All",
+}: CarModelsPageProps) {
+  const [activeBrand, setActiveBrand] = useState(initialBrand);
 
   const visibleFamilies = useMemo(() => {
     if (activeBrand === "All") {
@@ -133,38 +123,30 @@ export default function CarModelsPage({ families }: CarModelsPageProps) {
                 </div>
 
                 <div className={styles.cardGrid}>
-                  {family.pages.map((page, index) => {
-                    const TrimIcon = trimIcons[index % trimIcons.length];
-
-                    return (
-                      <article key={page.slug} className={styles.modelCard}>
-                        <Link href={`/cars/${page.slug}`} aria-label={`View ${page.model} ${page.trim}`}>
-                          <div className={styles.cardImage}>
-                            <Image
-                              src={page.images.gallery}
-                              alt={`${page.model} ${page.trim}`}
-                              fill
-                              sizes="(max-width: 760px) 100vw, (max-width: 1160px) 50vw, 33vw"
-                            />
-                            <div className={styles.cardImageShade} />
+                  {family.pages.map((page) => (
+                    <article key={page.slug} className={styles.modelCard}>
+                      <Link href={`/cars/${page.slug}`} aria-label={`View ${page.model} ${page.trim}`}>
+                        <Image
+                          src={page.images.gallery}
+                          alt={`${page.model} ${page.trim}`}
+                          fill
+                          sizes="(max-width: 760px) 100vw, (max-width: 1160px) 50vw, 25vw"
+                          className={styles.cardImage}
+                        />
+                        <div className={styles.cardImageShade} />
+                        <div className={styles.cardBody}>
+                          <div className={styles.cardCopy}>
+                            <h4>{page.trim}</h4>
+                            <p>/ {page.model}</p>
+                            <span>{page.headline}</span>
                           </div>
-                          <div className={styles.cardBody}>
-                            <div className={styles.hexIcon}>
-                              <TrimIcon aria-hidden="true" />
-                            </div>
-                            <div className={styles.cardCopy}>
-                              <p>{page.model}</p>
-                              <h4>{page.trim}</h4>
-                              <span>{page.headline}</span>
-                              <strong>
-                                View model <ArrowRight aria-hidden="true" />
-                              </strong>
-                            </div>
-                          </div>
-                        </Link>
-                      </article>
-                    );
-                  })}
+                          <strong aria-hidden="true">
+                            <ArrowRight />
+                          </strong>
+                        </div>
+                      </Link>
+                    </article>
+                  ))}
                 </div>
               </section>
             );

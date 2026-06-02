@@ -214,144 +214,133 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
 }
 
 .modelCard {
-  min-height: 360px;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: #05080a;
+  position: relative;
+  min-height: 230px;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+  border-radius: 3px;
+  background: #05080a;
   box-shadow:
-    inset 0 0 0 1px rgba(0, 0, 0, 0.38),
-    0 16px 42px rgba(0, 0, 0, 0.28);
+    inset 0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 16px 38px rgba(0, 0, 0, 0.34);
 }
 
 .modelCard a {
-  min-height: inherit;
-  display: grid;
-  grid-template-rows: minmax(204px, 58%) 1fr;
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: inherit;
 }
 
 .cardImage {
-  position: relative;
-  min-height: 204px;
-  overflow: hidden;
-}
-
-.cardImage img {
   object-fit: cover;
-  transition: transform 520ms ease;
+  object-position: center 43%;
+  filter: saturate(0.88) contrast(1.08) brightness(0.72);
+  transform: scale(1.01);
+  transition:
+    filter 360ms ease,
+    transform 520ms ease;
 }
 
-.modelCard:hover .cardImage img {
-  transform: scale(1.045);
+.modelCard:hover .cardImage,
+.modelCard:focus-within .cardImage {
+  filter: saturate(1) contrast(1.12) brightness(0.84);
+  transform: scale(1.055);
 }
 
 .cardImageShade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(2, 3, 4, 0.02) 0%, rgba(2, 3, 4, 0.12) 44%, rgba(2, 3, 4, 0.7) 100%),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.22), transparent 50%);
+    linear-gradient(180deg, rgba(2, 3, 4, 0.04) 0%, rgba(2, 3, 4, 0.18) 34%, rgba(2, 3, 4, 0.92) 100%),
+    linear-gradient(90deg, rgba(2, 3, 4, 0.76) 0%, rgba(2, 3, 4, 0.18) 58%, rgba(2, 3, 4, 0.52) 100%);
+  transition: background 240ms ease;
+}
+
+.modelCard:hover .cardImageShade,
+.modelCard:focus-within .cardImageShade {
+  background:
+    linear-gradient(180deg, rgba(2, 3, 4, 0.02) 0%, rgba(2, 3, 4, 0.13) 36%, rgba(2, 3, 4, 0.9) 100%),
+    linear-gradient(90deg, rgba(2, 3, 4, 0.72) 0%, rgba(2, 3, 4, 0.12) 58%, rgba(2, 3, 4, 0.48) 100%);
 }
 
 .cardBody {
-  position: relative;
-  display: grid;
-  min-height: 156px;
-  grid-template-columns: 64px minmax(0, 1fr);
-  align-items: start;
-  gap: 14px;
-  padding: 24px 22px 22px;
-  background:
-    linear-gradient(180deg, rgba(5, 8, 10, 0.96), rgba(2, 4, 6, 1)),
-    radial-gradient(circle at 14% 0%, rgba(0, 102, 214, 0.18), transparent 9rem);
-}
-
-.hexIcon {
-  position: relative;
-    width: 56px;
-  height: 62px;
-  display: grid;
-  place-items: center;
-  color: #1387ff;
-  filter: drop-shadow(0 0 14px rgba(0, 102, 214, 0.24));
-}
-
-.hexIcon::before,
-.hexIcon::after {
   position: absolute;
-  content: "";
-  clip-path: polygon(25% 4%, 75% 4%, 100% 50%, 75% 96%, 25% 96%, 0 50%);
-}
-
-.hexIcon::before {
-  inset: 0;
-  background: #006fe8;
-}
-
-.hexIcon::after {
-  inset: 2px;
-  background: #061018;
-}
-
-.hexIcon svg {
-    position: relative;
-  z-index: 1;
-  width: 25px;
-  height: 25px;
-  stroke-width: 1.8;
+  inset: auto 0 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 16px;
+  padding: 0 20px 18px;
 }
 
 .cardCopy {
   min-width: 0;
 }
 
-.cardCopy p {
-  display: none;
-}
-
 .cardCopy h4 {
-  margin: 0 0 9px;
+  margin: 0 0 5px;
   font-family: Oswald, sans-serif;
-  font-size: clamp(1.75rem, 2.35vw, 2.45rem);
-  line-height: 0.94;
+  font-size: clamp(1.35rem, 1.55vw, 1.9rem);
+  line-height: 0.92;
   text-transform: uppercase;
   letter-spacing: -0.035em;
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.92);
 }
 
-.cardCopy span {
-  display: -webkit-box;
-  min-height: 44px;
-  overflow: hidden;
+.cardCopy p {
+  position: relative;
+  display: block;
+  margin: 0 0 8px;
   color: #cfd8e1;
-  font-size: 0.92rem;
-  line-height: 1.5;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-}
-
-.cardCopy strong {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 15px;
-  color: #1387ff;
   font-family: Oswald, sans-serif;
-  font-size: 0.88rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  line-height: 1.1;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
 
-.cardCopy strong svg {
-  width: 17px;
+.cardCopy p::first-letter {
+  color: #1387ff;
+}
+
+.cardCopy span {
+  display: -webkit-box;
+  min-height: 36px;
+  overflow: hidden;
+  color: #e3e8ed;
+  font-size: 0.8rem;
+  line-height: 1.45;
+  text-shadow: 0 3px 16px rgba(0, 0, 0, 0.85);
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.cardBody strong {
+  width: 32px;
+  height: 32px;
+  display: inline-grid;
+  place-items: center;
+  color: #ffffff;
+}
+
+.cardBody strong svg {
+  width: 28px;
+  height: 28px;
+  stroke-width: 1.25;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.88));
   transition: transform 160ms ease;
 }
 
-.modelCard:hover strong svg {
-  transform: translateX(3px);
+.modelCard:hover strong svg,
+.modelCard:focus-within strong svg {
+  transform: translateX(4px);
 }
 
 .guideCta {
@@ -418,7 +407,13 @@
   letter-spacing: 0.05em;
 }
 
-@media (max-width: 1160px) {
+@media (max-width: 1240px) {
+  .cardGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 980px) {
   .cardGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -458,14 +453,11 @@
     font-size: 0.75rem;
   }
 
-  .cardBody {
-    min-height: 150px;
-    grid-template-columns: 58px minmax(0, 1fr);
-    padding: 20px 18px;
+  .modelCard {
+    min-height: 235px;
   }
 
-  .hexIcon {
-    width: 50px;
-    height: 56px;
+  .cardBody {
+    padding: 0 18px 18px;
   }
 }

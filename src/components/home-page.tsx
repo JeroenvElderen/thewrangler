@@ -7,7 +7,7 @@ import {
   HomeFooter,
   HomeHeader,
   NewsletterSection,
-  ShopByTypeSection,
+  ShopByBrandSection,
 } from "./home/sections";
 
 export default function HomePage() {
@@ -18,7 +18,7 @@ export default function HomePage() {
       <BenefitsSection />
       <FeaturedCarsSection />
       <AboutSection />
-      <ShopByTypeSection />
+      <ShopByBrandSection />
       <NewsletterSection />
       <HomeFooter />
     </main>

@@ -1,5 +1,14 @@
-import { BadgeCheck, Car, Settings, ShieldCheck, Star } from "lucide-react";
-import type { FeaturedCar, ShopType, StatItem } from "./types";
+import {
+  BadgeCheck,
+  Car,
+  Gauge,
+  Mountain,
+  Settings,
+  ShieldCheck,
+  Star,
+  Truck,
+} from "lucide-react";
+import type { FeaturedCar, ShopBrand, StatItem } from "./types";
 
 export const featuredCars: FeaturedCar[] = [
   { name: "2021 Ford F-150", trim: "Lariat 5.0 V8", price: "589 000 kr", meta: "18 000 km / Automatisk", image: "/car1.png" },
@@ -8,11 +17,37 @@ export const featuredCars: FeaturedCar[] = [
   { name: "2021 Jeep Grand", trim: "Cherokee SRT", price: "699 000 kr", meta: "15 000 km / Automatisk", image: "/car5.png" },
 ];
 
-export const shopTypes: ShopType[] = [
-  { title: "Full-size pickuper", image: "/dodge5.png", icon: Car },
-  { title: "Mid-size pickuper", image: "/gmc.png", icon: BadgeCheck },
-  { title: "Heavy Duty", image: "/ford1.png", icon: ShieldCheck },
-  { title: "Offroad & 4x4", image: "/chevrolet.png", icon: Settings },
+export const shopBrands: ShopBrand[] = [
+  {
+    title: "RAM",
+    image: "/dodge5.png",
+    icon: Truck,
+    href: "/cars?brand=RAM",
+  },
+  {
+    title: "Chevrolet",
+    image: "/chevy.png",
+    icon: Gauge,
+    href: "/cars?brand=Chevrolet",
+  },
+  {
+    title: "Jeep",
+    image: "/car1.png",
+    icon: Mountain,
+    href: "/cars?brand=Jeep",
+  },
+  {
+    title: "Ford",
+    image: "/ford.png",
+    icon: Car,
+    href: "/cars?brand=Ford",
+  },
+  {
+    title: "GMC",
+    image: "/gmc.png",
+    icon: BadgeCheck,
+    href: "/cars?brand=GMC",
+  },
 ];
 
 export const stats: StatItem[] = [
