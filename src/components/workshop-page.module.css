@@ -1,0 +1,517 @@
+.workshopSite {
+  min-height: 100vh;
+  background: #050607;
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+  min-height: 640px;
+  padding: 145px 22px 190px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.hero > img,
+.ctaPanel > img,
+.shopImage img {
+  object-fit: cover;
+}
+
+.hero > img {
+  object-position: 70% center;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 78% 28%, rgba(0, 102, 214, 0.2), transparent 28%),
+    linear-gradient(90deg, #050607 0%, rgba(5, 6, 7, 0.93) 33%, rgba(5, 6, 7, 0.36) 72%),
+    linear-gradient(0deg, #050607 0%, rgba(5, 6, 7, 0.7) 22%, transparent 58%);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 620px;
+}
+
+.kicker,
+.panelKicker {
+  margin: 0;
+  color: var(--red);
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.7px;
+  font-size: 13px;
+}
+
+.kicker {
+  margin-bottom: 22px;
+}
+
+.hero h1,
+.sectionHeading h2,
+.whyContent h2,
+.ctaPanel h2,
+.serviceCard h3,
+.processItem h3,
+.footer h4,
+.trustStrip h2,
+.reasonGrid h3 {
+  font-family: Oswald, sans-serif;
+  text-transform: uppercase;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(50px, 8vw, 96px);
+  line-height: 0.91;
+  letter-spacing: -2px;
+}
+
+.hero h1 span,
+.whyContent h2 span {
+  display: block;
+  color: var(--red);
+}
+
+.heroText {
+  max-width: 540px;
+  margin: 24px 0 0;
+  color: #edf2f5;
+  font-size: 15px;
+  line-height: 1.75;
+}
+
+.trustStrip {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin: -112px 22px 22px;
+  padding: 22px 0;
+}
+
+.trustStrip article {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.trustStrip svg,
+.serviceCard svg,
+.reasonGrid svg,
+.processItem svg {
+  color: var(--red);
+  stroke-width: 1.7;
+}
+
+.trustStrip > article > svg {
+  width: 42px;
+  height: 42px;
+  padding: 9px;
+  flex-shrink: 0;
+  border: 1px solid var(--red);
+  border-radius: 50%;
+  background: rgba(0, 102, 214, 0.08);
+}
+
+.trustStrip h2 {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.1;
+}
+
+.trustStrip p,
+.serviceCard p,
+.sectionHeading p,
+.reasonGrid p,
+.processItem p,
+.ctaPanel p,
+.footer p,
+.footer a {
+  color: #cbd3d8;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.trustStrip p,
+.serviceCard p,
+.reasonGrid p,
+.processItem p,
+.ctaPanel p,
+.footer p {
+  margin: 7px 0 0;
+}
+
+.servicesPanel,
+.whyPanel,
+.processPanel,
+.ctaPanel {
+  margin: 0 22px 22px;
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at top right, rgba(0, 102, 214, 0.1), transparent 28%),
+    linear-gradient(135deg, rgba(9, 15, 19, 0.98), rgba(5, 6, 7, 0.98));
+}
+
+.servicesPanel,
+.processPanel {
+  padding: 26px;
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: -6px auto 24px;
+  text-align: center;
+}
+
+.sectionHeading span {
+  display: none;
+  width: 72px;
+  height: 1px;
+  background: var(--red);
+}
+
+.sectionHeading h2,
+.whyContent h2,
+.ctaPanel h2 {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 0.98;
+}
+
+.sectionHeading p {
+  margin: 8px 0 0;
+}
+
+.serviceGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+.serviceCard {
+  min-height: 228px;
+  padding: 24px;
+  border: 1px solid #273039;
+  background: rgba(2, 6, 9, 0.52);
+  text-align: center;
+  transition: border-color 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+
+.serviceCard:hover {
+  transform: translateY(-3px);
+  border-color: rgba(0, 102, 214, 0.8);
+  background: rgba(0, 102, 214, 0.08);
+}
+
+.serviceCard svg {
+  width: 54px;
+  height: 54px;
+  margin-bottom: 22px;
+}
+
+.serviceCard h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.serviceCard a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 18px;
+  color: var(--red);
+  font-family: Oswald, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.whyPanel {
+  display: grid;
+  grid-template-columns: 1fr;
+  overflow: hidden;
+}
+
+.shopImage {
+  position: relative;
+  min-height: 320px;
+}
+
+.shopImage::after,
+.ctaPanel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5, 6, 7, 0.1), rgba(5, 6, 7, 0.72));
+}
+
+.whyContent {
+  padding: 28px;
+}
+
+.reasonGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.reasonGrid article {
+  text-align: center;
+  padding: 4px 14px 0;
+}
+
+.reasonGrid svg {
+  width: 38px;
+  height: 38px;
+  margin-bottom: 14px;
+}
+
+.reasonGrid h3,
+.processItem h3,
+.footer h4 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.05;
+}
+
+.processGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.processItem {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.processItem strong {
+  color: var(--red);
+  font-family: Oswald, sans-serif;
+  font-size: 38px;
+  line-height: 0.9;
+}
+
+.processItem > svg:not(.processArrow) {
+  width: 36px;
+  height: 36px;
+  color: #e9eff2;
+}
+
+.processArrow {
+  display: none;
+}
+
+.ctaPanel {
+  position: relative;
+  min-height: 220px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 22px;
+  overflow: hidden;
+}
+
+.ctaPanel > div {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaPanel > img {
+  z-index: 0;
+  object-position: 72% center;
+}
+
+.ctaPanel::after {
+  z-index: 1;
+  background:
+    linear-gradient(90deg, rgba(5, 6, 7, 0.96) 0%, rgba(5, 6, 7, 0.82) 44%, rgba(5, 6, 7, 0.2) 100%),
+    linear-gradient(0deg, rgba(5, 6, 7, 0.78), transparent);
+}
+
+.ctaActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.primaryButton,
+.secondaryButton {
+  min-height: 48px;
+  padding: 0 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  font-family: Oswald, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.primaryButton {
+  border-color: var(--red);
+  background: var(--red);
+  color: #fff;
+}
+
+.secondaryButton {
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  padding: 10px 22px 26px;
+}
+
+.footerBrand img {
+  display: block;
+  width: 150px;
+  height: auto;
+  margin-bottom: 12px;
+}
+
+.footer h4 {
+  color: var(--red);
+  font-size: 15px;
+  letter-spacing: 0.6px;
+}
+
+.footer a {
+  display: block;
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+@media (min-width: 700px) {
+  .hero {
+    padding-inline: 38px;
+  }
+
+  .trustStrip,
+  .servicesPanel,
+  .whyPanel,
+  .processPanel,
+  .ctaPanel {
+    margin-inline: 38px;
+  }
+
+  .trustStrip {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .serviceGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .reasonGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer {
+    grid-template-columns: 1.35fr repeat(2, 1fr);
+    padding-inline: 38px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero {
+    min-height: 680px;
+    padding: 170px 46px 205px;
+  }
+
+  .trustStrip,
+  .servicesPanel,
+  .whyPanel,
+  .processPanel,
+  .ctaPanel {
+    margin-inline: 46px;
+  }
+
+  .trustStrip {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .sectionHeading span {
+    display: block;
+  }
+
+  .serviceGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .whyPanel {
+    grid-template-columns: 42% 58%;
+  }
+
+  .whyContent {
+    padding: 34px;
+  }
+
+  .reasonGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .reasonGrid article + article {
+    border-left: 1px solid #273039;
+  }
+
+  .processGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+  }
+
+  .processItem {
+    grid-template-columns: auto auto 1fr;
+  }
+
+  .processArrow {
+    display: block;
+    position: absolute;
+    top: 18px;
+    right: -23px;
+    width: 24px;
+    height: 24px;
+    color: var(--red);
+  }
+
+  .ctaPanel {
+    min-height: 132px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 36px;
+  }
+
+  .footer {
+    grid-template-columns: 1.45fr repeat(4, 1fr);
+    border-top: 1px solid var(--border);
+  }
+}

@@ -28,7 +28,7 @@ const navItems: NavItem[] = [
   },
   { label: "Verkstad", href: "" },
   { label: "Financing", href: "" },
-  { label: "Kontakt", href: "" },
+  { label: "Kontakt", href: "/contact" },
 ];
 
 export default function SiteHeader() {
