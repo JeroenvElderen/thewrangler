@@ -26,8 +26,8 @@ const navItems: NavItem[] = [
       { label: "Offroad & 4x4", href: "/cars" },
     ],
   },
-  { label: "Verkstad", href: "" },
-  { label: "Financing", href: "" },
+  { label: "Verkstad", href: "/verkstad" },
+  { label: "Financing", href: "/financing" },
   { label: "Kontakt", href: "/contact" },
 ];
 
@@ -78,7 +78,9 @@ export default function SiteHeader() {
       </button>
       <nav className={menuOpen ? styles.mobileNavOpen : undefined}>
         {navItems.map((item, index) => {
-          const isActive = pathname === item.href;
+          const isActive =
+            pathname === item.href ||
+            (item.href === "/verkstad" && pathname === "/workshop");
 
           if (item.children) {
             return (
