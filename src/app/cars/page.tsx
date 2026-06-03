@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import CarModelsPage from "@/components/car-models-page";
-import { carModelFamilies } from "@/data/car-models";
+import { carBrandFilters, carModelFamilies } from "@/data/car-models";
 
 export const metadata: Metadata = {
   title: "Cars & Models | The Wrangler",
@@ -8,6 +8,29 @@ export const metadata: Metadata = {
     "Explore The Wrangler's informative model guides and compare trims by brand.",
 };
 
-export default function CarsPage() {
-  return <CarModelsPage families={carModelFamilies} />;
+type CarsPageProps = {
+  searchParams: Promise<{ brand?: string | string[] }>;
+};
+
+function getInitialBrand(brand: string | string[] | undefined) {
+  const requestedBrand = Array.isArray(brand) ? brand[0] : brand;
+
+  if (requestedBrand && carBrandFilters.includes(requestedBrand)) {
+    return requestedBrand;
+  }
+
+  return "All";
+}
+
+export default async function CarsPage({ searchParams }: CarsPageProps) {
+  const { brand } = await searchParams;
+  const initialBrand = getInitialBrand(brand);
+
+  return (
+    <CarModelsPage
+      key={initialBrand}
+      families={carModelFamilies}
+      initialBrand={initialBrand}
+    />
+  );
 }
