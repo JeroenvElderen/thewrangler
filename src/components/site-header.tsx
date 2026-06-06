@@ -80,7 +80,8 @@ export default function SiteHeader() {
         {navItems.map((item, index) => {
           const isActive =
             pathname === item.href ||
-            (item.href === "/verkstad" && pathname === "/workshop");
+            (item.href === "/verkstad" &&
+              (pathname === "/workshop" || pathname.startsWith("/verkstad/")));
 
           if (item.children) {
             return (
