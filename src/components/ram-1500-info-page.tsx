@@ -3,7 +3,6 @@ import Link from "next/link";
 import {
   Armchair,
   BadgeDollarSign,
-  CarFront,
   CheckCircle2,
   ChevronRight,
   CircleGauge,
@@ -12,10 +11,8 @@ import {
   Headphones,
   MapPin,
   Mountain,
-  Phone,
   ShieldCheck,
   Truck,
-  Wrench,
   type LucideIcon,
 } from "lucide-react";
 import type { RamEquipmentIcon, RamInfoPage } from "@/data/ram-1500-pages";
@@ -212,59 +209,6 @@ export default function Ram1500InfoPage({ page }: Ram1500InfoPageProps) {
         </div>
       </section>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerBrand}>
-          <Image
-            src="/Wrangler_Logo.svg"
-            alt="The Wrangler"
-            width={170}
-            height={100}
-          />
-          <p>
-            American trucks. Imported for passion. Built for the road ahead.
-          </p>
-        </div>
-        <div>
-          <h3>Quick links</h3>
-          <Link href="/stock">Cars</Link>
-          <Link href="/about">About us</Link>
-          <Link href="/services">Services</Link>
-          <Link href="/financing">Financing</Link>
-          <Link href="/contact">Contact</Link>
-        </div>
-        <div>
-          <h3>Services</h3>
-          <a>Buy/Sell</a>
-          <a>Trade-in</a>
-          <a>Financing</a>
-          <a>Delivery</a>
-        </div>
-        <div>
-          <h3>Workshop</h3>
-          <a>Repairs</a>
-          <a>Maintenance</a>
-          <a>Diagnostics</a>
-          <a>Performance</a>
-        </div>
-        <div>
-          <h3>Contact us</h3>
-          <p>
-            <Phone aria-hidden="true" /> +46 70 123 45 67
-          </p>
-          <p>
-            <Wrench aria-hidden="true" /> info@thewrangler.se
-          </p>
-          <p>
-            <CarFront aria-hidden="true" /> Falkenberg, Sweden
-          </p>
-        </div>
-        <div>
-          <h3>Opening hours</h3>
-          <p>Mon - Fri: 08:00 - 17:00</p>
-          <p>Saturday: 09:00 - 14:00</p>
-          <p>Sunday: Closed</p>
-        </div>
-      </footer>
     </main>
   );
 }

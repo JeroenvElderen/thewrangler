@@ -12,7 +12,6 @@ import {
   Star,
   Wrench,
 } from "lucide-react";
-import { HomeFooter } from "./home/sections";
 import SiteHeader from "./site-header";
 import styles from "./about-page.module.css";
 
@@ -321,7 +320,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <HomeFooter />
     </main>
   );
 }

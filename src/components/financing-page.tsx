@@ -15,7 +15,6 @@ import {
     Truck,
 } from "lucide-react";
 import SiteHeader from "./site-header";
-import { HomeFooter } from "./home/sections/home-footer";
 import styles from "./financing-page.module.css";
 
 const trustItems = [
@@ -252,7 +251,6 @@ export default function FinancingPage() {
         </div>
       </section>
 
-      <HomeFooter />
     </main>
   );
 }

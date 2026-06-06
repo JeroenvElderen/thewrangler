@@ -1,7 +1,6 @@
 import Image from "next/image";
 import SiteHeader from "./site-header";
 import styles from "./stock-page.module.css";
-import { HomeFooter } from "./home/sections/home-footer";
 
 type StockVehicle = {
   year: number;
@@ -110,7 +109,6 @@ export default function StockPage() {
         <button>Value my trade-in</button>
       </section>
 
-      <HomeFooter />
     </main>
   );
 }

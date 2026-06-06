@@ -4,7 +4,6 @@ import {
   BenefitsSection,
   FeaturedCarsSection,
   HeroSection,
-  HomeFooter,
   HomeHeader,
   NewsletterSection,
   ShopByBrandSection,
@@ -20,7 +19,6 @@ export default function HomePage() {
       <AboutSection />
       <ShopByBrandSection />
       <NewsletterSection />
-      <HomeFooter />
     </main>
   );
 }
