@@ -226,45 +226,6 @@ export default function WorkshopServicePage({ service }: WorkshopServicePageProp
                 </div>
             </section>
 
-            <footer className={styles.footer}>
-                <div className={styles.footerBrand}>
-                    <Image
-                        src="/Wrangler_Logo.svg"
-                        alt="The Wrangler"
-                        width={150}
-                        height={100}
-                    />
-                    <p>American trucks. Imported with passion. Built for the road ahead.</p>
-                </div>
-                <div>
-                    <h4>Quick links</h4>
-                    <Link href="/cars">Cars</Link>
-                    <Link href="/about">About us</Link>
-                    <Link href="/verkstad">Workshop</Link>
-                    <Link href="/financing">Financing</Link>
-                    <Link href="/contact">Contact</Link>
-                </div>
-                <div>
-                    <h4>Services</h4>
-                    {workshopServices.map((item) => (
-                        <Link href={`/verkstad/${item.slug}`} key={item.slug}>
-                            {item.title}
-                        </Link>
-                    ))}
-                </div>
-                <div>
-                    <h4>Contact</h4>
-                    <p>+46 70 123 45 67</p>
-                    <p>info@thewrangler.se</p>
-                    <p>Strangnas, Sweden</p>
-                </div>
-                <div>
-                    <h4>Opening hours</h4>
-                    <p>mon-Fri: 08:00-17:00</p>
-                    <p>Saturday: 09:00-14:00</p>
-                    <p>Sunday: Closed</p>
-                </div>
-            </footer>
         </main>
     )
 }

@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Bell, CarFront, Cog, ShieldCheck, Tag } from "lucide-react";
 import SiteHeader from "./site-header";
-import { HomeFooter } from "./home/sections";
 import styles from "./coming-soon-page.module.css";
 
 const countdown = [
@@ -110,7 +109,6 @@ export default function ComingSoonPage() {
         </div>
       </section>
 
-      <HomeFooter />
     </main>
   );
 }

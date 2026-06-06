@@ -14,7 +14,6 @@ import {
     Wrench,
     PlayCircle,
 } from "lucide-react";
-import { HomeFooter } from "./home/sections";
 import SiteHeader from "./site-header";
 import styles from "./contact-page.module.css";
 
@@ -265,7 +264,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <HomeFooter />
     </main>
   );
 }

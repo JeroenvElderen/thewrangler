@@ -276,48 +276,6 @@ export default function WorkshopPage() {
         />
       </section>
 
-      <footer className={styles.footer}>
-        <div className={styles.footerBrand}>
-          <Image
-            src="/Wrangler_Logo.svg"
-            alt="The Wrangler"
-            width={150}
-            height={100}
-          />
-          <p>Amerikanska trucks. Importerade med passion. Byggda för vägen framåt.</p>
-        </div>
-        <div>
-          <h4>Snabblänkar</h4>
-          <Link href="/cars">Bilar</Link>
-          <Link href="/about">Om oss</Link>
-          <Link href="/services">Tjänster</Link>
-          <Link href="/verkstad">Verkstad</Link>
-          <Link href="/contact">Kontakt</Link>
-        </div>
-        <div>
-          <h4>Tjänster</h4>
-          <Link href="/verkstad/service">Service</Link>
-          <Link href="/verkstad/bromsar">Bromsar</Link>
-          <Link href="/verkstad/diagnostik">Diagnostik</Link>
-          <Link href="/verkstad/chassi-styrning">Chassi & styrning</Link>
-          <Link href="/verkstad/dack-hjul">Däck & hjul</Link>
-          <Link href="/verkstad/elsystem">Elsystem</Link>
-          <Link href="/verkstad/avgas-ljud">Avgas & ljud</Link>
-          <Link href="/verkstad/custombyggen">Custombyggen</Link>
-        </div>
-        <div>
-          <h4>Kontakt</h4>
-          <p>+46 70 123 45 67</p>
-          <p>info@thewrangler.se</p>
-          <p>Strängnäs, Sweden</p>
-        </div>
-        <div>
-          <h4>Öppettider</h4>
-          <p>Mån–Fre: 08:00–17:00</p>
-          <p>Lördag: 09:00–14:00</p>
-          <p>Söndag: Stängt</p>
-        </div>
-      </footer>
     </main>
   );
 }
