@@ -1,0 +1,34 @@
+import Image from "next/image";
+import { ChevronDown, Plus, TrendingUp } from "lucide-react";
+import styles from "./dashboard.module.css";
+import { cars, stats } from "./_components/data";
+
+export default function DashboardPage() {
+  return (
+    <>
+      <div className={styles.heroPanel}>
+        <div>
+          <p className={styles.eyebrow}>Admin CMS</p>
+          <h1>Dashboard</h1>
+          <p>Welcome back, Admin! Here&apos;s what is happening across The Wrangler.</p>
+        </div>
+        <button className={styles.primary}><Plus size={15} /> Add New Car</button>
+      </div>
+
+      <section className={styles.statsGrid}>
+        {stats.map(({ icon: Icon, label, value, delta }) => (
+          <article className={styles.statCard} key={label}><div><span>{label}</span><strong>{value}</strong><em>{delta}</em></div><Icon size={22} /></article>
+        ))}
+      </section>
+
+      <section className={styles.mainGrid}>
+        <article className={styles.chartCard}>
+          <div className={styles.cardHeader}><h2>Website Views</h2><button>This Week <ChevronDown size={12} /></button></div>
+          <div className={styles.chart}><svg viewBox="0 0 640 220" role="img" aria-label="Line chart of website views"><path className={styles.gridLine} d="M20 40H620M20 90H620M20 140H620M20 190H620" /><path className={styles.area} d="M20 170L115 145L210 88L305 160L400 134L495 148L590 52L620 66V220H20Z" /><path className={styles.line} d="M20 170L115 145L210 88L305 160L400 134L495 148L590 52L620 66" />{[20,115,210,305,400,495,590,620].map((x, i) => <circle key={x} cx={x} cy={[170,145,88,160,134,148,52,66][i]} r="5" />)}</svg></div>
+        </article>
+
+        <article className={styles.card}><div className={styles.cardHeader}><h2>Top Performing Cars</h2><TrendingUp size={17} /></div>{cars.slice(0, 5).map((car, index) => (<div className={styles.miniCar} key={car[1]}><Image src={car[0]} alt="" width={54} height={34} /><span>{car[1]}</span><em>{2153 - index * 271} views</em></div>))}<a className={styles.link}>View all cars →</a></article>
+      </section>
+    </>
+  );
+}
