@@ -37,8 +37,24 @@ export function HeroSection() {
       <aside className={styles.authorizedPanel} aria-label="Auktoriserad återförsäljare">
         <p>Auktoriserad återförsäljare</p>
         <div>
-          <span className={styles.brandLogoText}>GMC</span>
-          <span className={styles.brandLogoText}>Chevrolet</span>
+          <span className={styles.brandLogoMark}>
+            <Image
+              src="/GMC-Logo.svg"
+              alt="GMC"
+              width={150}
+              height={34}
+              className={styles.brandLogoImage}
+            />
+          </span>
+          <span className={styles.brandLogoMark}>
+            <Image
+              src="/chevrolet_logo.svg"
+              alt="Chevrolet"
+              width={210}
+              height={98}
+              className={styles.brandLogoImage}
+            />
+          </span>
         </div>
       </aside>
     </section>
