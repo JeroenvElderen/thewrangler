@@ -20,14 +20,14 @@ const navItems: NavItem[] = [
     label: "Fordon",
     href: "",
     children: [
-      { label: "Model guides", href: "/cars" },
-      { label: "Inventory", href: "/stock" },
+      { label: "Modelguider", href: "/cars" },
+      { label: "Lager", href: "/stock" },
       { label: "Pickup", href: "/cars" },
       { label: "Offroad & 4x4", href: "/cars" },
     ],
   },
   { label: "Verkstad", href: "/verkstad" },
-  { label: "Financing", href: "/financing" },
+  { label: "Finansiering", href: "/financing" },
   { label: "Kontakt", href: "/contact" },
 ];
 

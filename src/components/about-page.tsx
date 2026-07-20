@@ -61,33 +61,6 @@ const experience = [
   },
 ];
 
-const team = [
-  {
-    name: "Jason Miller",
-    role: "Founder & CEO",
-    desc: "Bilentusiast och branschveteran med en tydlig vision om att göra bilköpet mer personligt.",
-    image: "/car1.png",
-  },
-  {
-    name: "Emily Johnson",
-    role: "Sales Manager",
-    desc: "Hjälper varje kund att hitta rätt amerikansk bil för sin livsstil och sina behov.",
-    image: "/car2.png",
-  },
-  {
-    name: "Mike Thompson",
-    role: "Service Manager",
-    desc: "Ser till att varje bil lämnar verkstaden i toppskick och att supporten håller rätt nivå.",
-    image: "/car3.png",
-  },
-  {
-    name: "Daniel Anderson",
-    role: "Finance Specialist",
-    desc: "Tar fram flexibla finansieringslösningar som gör drömbilen enklare att förverkliga.",
-    image: "/car4.png",
-  },
-];
-
 const productCards = [
   {
     title: "Jeep Wrangler",
@@ -123,16 +96,16 @@ export default function AboutPage() {
         <div className={styles.heroContent}>
           <p className={styles.smallKicker}>/ Om oss</p>
           <h1>
-            The Wrangler.<span>En legend vaknar.</span>
+            Inte bara ett showroom<span>en destination.</span>
           </h1>
           <p>
-            The Wrangler är ett dotterbolag till Hyrdon Sverige AB — Sveriges
-            mest flexibla bilösning och ett ledande företag inom prisvärda,
-            flexibla bilabonnemang sedan 2019.
+            Välkommen till en av de mest exklusiva destinationerna för amerikanska bilar
+            och pickuper. Hos oss står inte den snabba affären i fokus, utan
+            personlig service, förtroende och en upplevelse i en klass för sig.
           </p>
           <p>
-            Vi grundades 2025 i Strängnäs för att göra amerikanska pickup- och
-            terrängfordon mer tillgängliga, personliga och bekymmersfria.
+            Ta plats, koppla av med en förstklassig kopp kaffe och upptäck i lugn och ro
+            din nästa amerikanska drömbil.
           </p>
         </div>
       </section>
@@ -151,7 +124,7 @@ export default function AboutPage() {
 
       <section className={styles.story}>
         <div className={styles.storyLeft}>
-          <p className={styles.smallKicker}>/ Vår berättelse</p>
+          <p className={styles.smallKicker}>/ Vår historia</p>
           <div className={styles.timeline}>
             {[
               [
@@ -184,7 +157,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.experience}>
+      <section id="vad-ar-the-wrangler" className={styles.experience}>
         <div className={styles.sectionIntro}>
           <p className={styles.smallKicker}>/ Vad är The Wrangler?</p>
           <h2>Frihet, personlighet och amerikansk bilkultur.</h2>
@@ -227,35 +200,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.team}>
-        <div className={styles.teamIntro}>
-          <p className={styles.smallKicker}>/ Vårt team</p>
-          <h2>Riktiga människor. Riktig passion.</h2>
-          <p>
-            Bakom The Wrangler finns bilintresserade människor med passion för
-            amerikanska fordon och ett gemensamt mål: att ge dig en personlig,
-            trygg och minnesvärd upplevelse från första besöket till lång tid
-            efter leverans.
-          </p>
-          <Link className={styles.outlineBtn} href="/">
-            Möt teamet
-          </Link>
-        </div>
-        <div className={styles.teamGrid}>
-          {team.map((member) => (
-            <article className={styles.member} key={member.name}>
-              <div className={styles.memberPhoto}>
-                <Image src={member.image} alt={member.name} fill />
-              </div>
-              <h4>{member.name}</h4>
-              <p className={styles.role}>{member.role}</p>
-              <p>{member.desc}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className={styles.promise}>
+      <section id="garanti-service" className={styles.promise}>
         <div className={styles.promiseIntro}>
           <p className={styles.smallKicker}>/ Garanti och service</p>
           <h2>Du köper en bil. Vi ser till att du njuter av den.</h2>
@@ -296,7 +241,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={styles.family}>
+      <section id="legend" className={styles.family}>
         <div className={styles.familyBanner}>
           <Image src="/car4.png" alt="Amerikansk pickup på öppen väg" fill />
         </div>

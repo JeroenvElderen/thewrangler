@@ -6,6 +6,7 @@ export type FeaturedCar = {
   price: string;
   meta: string;
   image: string;
+  href: string;
 };
 
 export type ShopBrand = {

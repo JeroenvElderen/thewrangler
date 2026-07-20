@@ -31,7 +31,7 @@ const trustItems = [
     {
         icon: Users,
         title: "Personlig kontakt",
-        text: "Rätt person guidar dig hele vägen till rätt bil.",
+        text: "Rätt person guidar dig hela vägen till rätt bil.",
     },
 ];
 
@@ -39,7 +39,7 @@ const contactDetails = [
     {
         icon: Phone,
         title: "Telefon",
-        lines: ["+46 70 123 45 67"],
+        lines: ["+46 76 774 25 02"],
     },
     {
         icon: Mail,
@@ -151,13 +151,22 @@ export default function ContactPage() {
                 <option>Import</option>
                 <option>Finansiering</option>
                 <option>Service</option>
+                <option>Boka service</option>
               </select>
+            </label>
+            <label>
+              <span>Kilometerställning</span>
+              <input type="text" name="mileage" placeholder="T.ex. 82 000 km" />
+            </label>
+            <label>
+              <span>Önskat datum</span>
+              <input type="date" name="preferredDate" />
             </label>
             <label className={styles.messageField}>
               <span>Meddelande</span>
               <textarea
                 name="message"
-                placeholder="Skriv ditt meddelande"
+                placeholder="Skriv ditt meddelande eller beskriv önskat servicearbete"
                 rows={6}
               />
             </label>

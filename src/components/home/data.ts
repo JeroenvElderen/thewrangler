@@ -11,10 +11,11 @@ import {
 import type { FeaturedCar, ShopBrand, StatItem } from "./types";
 
 export const featuredCars: FeaturedCar[] = [
-  { name: "2021 Ford F-150", trim: "Lariat 5.0 V8", price: "589 000 kr", meta: "18 000 km / Automatisk", image: "/car1.png" },
-  { name: "2020 Dodge Challenger", trim: "SRT Hellcat", price: "899 000 kr", meta: "12 500 km / Automatisk", image: "/car2.png" },
-  { name: "2019 Chevrolet", trim: "Camaro SS", price: "499 000 kr", meta: "22 000 km / Automatisk", image: "/car3.png" },
-  { name: "2021 Jeep Grand", trim: "Cherokee SRT", price: "699 000 kr", meta: "15 000 km / Automatisk", image: "/car5.png" },
+  { name: "Chevrolet Silverado", trim: "Full-size pickup", price: "Modelguide", meta: "Läs om versioner och utrustning", image: "/chevy.png", href: "/cars/chevrolet-silverado-lt" },
+  { name: "GMC Sierra", trim: "Premium pickup", price: "Modelguide", meta: "Läs om versioner och utrustning", image: "/gmc.png", href: "/cars/gmc-sierra-1500-pro" },
+  { name: "RAM 1500", trim: "Komfort och kraft", price: "Modelguide", meta: "Läs om versioner och utrustning", image: "/dodge1.png", href: "/cars/ram-1500-laramie" },
+  { name: "Jeep Wrangler", trim: "Ikonisk 4x4", price: "Modelguide", meta: "Läs om versioner och utrustning", image: "/car1.png", href: "/cars/jeep-wrangler-sahara" },
+  { name: "Ford F-150", trim: "Amerikansk klassiker", price: "Modelguide", meta: "Läs om versioner och utrustning", image: "/ford1.png", href: "/cars/ford-f-150-lariat" },
 ];
 
 export const shopBrands: ShopBrand[] = [

@@ -17,102 +17,65 @@ type StockVehicle = {
 };
 
 const stockVehicles: StockVehicle[] = [
-  { year: 2022, name: "Ford F-150", trim: "Lariat 4x4 SuperCrew", price: "€59,950", mileage: "45,000 KM", fuel: "Petrol", image: "/ford1.png", badge: "Ready now", location: "Stockholm" },
-  { year: 2021, name: "RAM 1500", trim: "Limited Crew Cab", price: "€67,500", mileage: "38,600 KM", fuel: "Petrol", image: "/dodge1.png", badge: "Premium spec", location: "Strängnäs" },
-  { year: 2023, name: "Chevrolet Silverado", trim: "1500 LTZ Z71", price: "€62,900", mileage: "22,800 KM", fuel: "Diesel", image: "/chevy.png", badge: "Low mileage", location: "Stockholm" },
-  { year: 2022, name: "GMC Sierra 1500", trim: "AT4 Crew Cab", price: "€63,250", mileage: "29,100 KM", fuel: "Diesel", image: "/gmc.png", badge: "Inspected", location: "Strängnäs" },
-  { year: 2021, name: "Dodge RAM 2500", trim: "Laramie 4x4", price: "€58,950", mileage: "61,000 KM", fuel: "Diesel", image: "/dodge2.png", badge: "Tow ready", location: "Stockholm" },
-  { year: 2020, name: "Ford F-150 Raptor", trim: "SuperCrew 4x4", price: "€74,900", mileage: "36,400 KM", fuel: "Petrol", image: "/dodge3.png", badge: "Performance", location: "Strängnäs" },
-  { year: 2019, name: "Jeep Gladiator", trim: "Rubicon 4x4", price: "€49,950", mileage: "47,200 KM", fuel: "Petrol", image: "/dodge4.png", badge: "Off-road", location: "Stockholm" },
-  { year: 2022, name: "Tesla Model Y", trim: "Long Range AWD", price: "€44,900", mileage: "28,000 KM", fuel: "Electric", image: "/car1.png", badge: "Electric", location: "Strängnäs" },
-  { year: 2021, name: "Ford Explorer", trim: "Platinum AWD", price: "€36,900", mileage: "52,000 KM", fuel: "Petrol", image: "/car2.png", badge: "Family SUV", location: "Stockholm" },
-  { year: 2020, name: "Chevrolet Tahoe", trim: "Premier AWD", price: "€64,900", mileage: "71,000 KM", fuel: "Petrol", image: "/car3.png", badge: "Seven seats", location: "Strängnäs" },
-  { year: 2021, name: "Cadillac Escalade", trim: "Premium Luxury", price: "€89,900", mileage: "39,500 KM", fuel: "Petrol", image: "/car4.png", badge: "Luxury", location: "Stockholm" },
-  { year: 2020, name: "Ford Mustang GT", trim: "5.0L V8", price: "€38,500", mileage: "33,700 KM", fuel: "Petrol", image: "/car5.png", badge: "V8", location: "Strängnäs" },
+  { year: 2022, name: "Ford F-150", trim: "Lariat 4x4 SuperCrew", price: "€59,950", mileage: "45,000 KM", fuel: "Bensin", image: "/ford1.png", badge: "Redo nu", location: "Stockholm" },
+  { year: 2021, name: "RAM 1500", trim: "Limited Crew Cab", price: "€67,500", mileage: "38,600 KM", fuel: "Bensin", image: "/dodge1.png", badge: "Premium-spec", location: "Strängnäs" },
+  { year: 2023, name: "Chevrolet Silverado", trim: "1500 LTZ Z71", price: "€62,900", mileage: "22,800 KM", fuel: "Diesel", image: "/chevy.png", badge: "Låg mil", location: "Stockholm" },
+  { year: 2022, name: "GMC Sierra 1500", trim: "AT4 Crew Cab", price: "€63,250", mileage: "29,100 KM", fuel: "Diesel", image: "/gmc.png", badge: "Kontrollerad", location: "Strängnäs" },
+  { year: 2021, name: "Dodge RAM 2500", trim: "Laramie 4x4", price: "€58,950", mileage: "61,000 KM", fuel: "Diesel", image: "/dodge2.png", badge: "Dragklar", location: "Stockholm" },
+  { year: 2020, name: "Ford F-150 Raptor", trim: "SuperCrew 4x4", price: "€74,900", mileage: "36,400 KM", fuel: "Bensin", image: "/dodge3.png", badge: "Prestanda", location: "Strängnäs" },
+  { year: 2019, name: "Jeep Gladiator", trim: "Rubicon 4x4", price: "€49,950", mileage: "47,200 KM", fuel: "Bensin", image: "/dodge4.png", badge: "Offroad", location: "Stockholm" },
+  { year: 2022, name: "Tesla Model Y", trim: "Long Range AWD", price: "€44,900", mileage: "28,000 KM", fuel: "El", image: "/car1.png", badge: "El", location: "Strängnäs" },
+  { year: 2021, name: "Ford Explorer", trim: "Platinum AWD", price: "€36,900", mileage: "52,000 KM", fuel: "Bensin", image: "/car2.png", badge: "Familje-SUV", location: "Stockholm" },
+  { year: 2020, name: "Chevrolet Tahoe", trim: "Premier AWD", price: "€64,900", mileage: "71,000 KM", fuel: "Bensin", image: "/car3.png", badge: "Sju säten", location: "Strängnäs" },
+  { year: 2021, name: "Cadillac Escalade", trim: "Premium Lyx", price: "€89,900", mileage: "39,500 KM", fuel: "Bensin", image: "/car4.png", badge: "Lyx", location: "Stockholm" },
+  { year: 2020, name: "Ford Mustang GT", trim: "5.0L V8", price: "€38,500", mileage: "33,700 KM", fuel: "Bensin", image: "/car5.png", badge: "V8", location: "Strängnäs" },
 ];
 
 const filters = [
-  "All Makes",
-  "All Models",
-  "All Body Types",
-  "All Fuel Types",
+  "Alla märken",
+  "Alla modeller",
+  "Alla karosstyper",
+  "Alla drivmedel",
   "€10,000 - €80,000+",
   "2015 - 2024",
   "0 - 200,000+ KM",
 ];
 
-const highlights = ["Verified history", "Swedish delivery", "Trade-ins welcome"];
-
 export default function StockPage() {
   return (
     <main className={styles.site}>
       <SiteHeader />
-      <section className={styles.hero}>
-        <Image
-          src="/gmc-header.png"
-          alt="American pickup outside The Wrangler showroom"
-          fill
-          priority
-          className={styles.heroImage}
-          sizes="100vw"
-        />
-        <div className={styles.heroOverlay} />
-        <div className={styles.heroContent}>
-          <p className={styles.kicker}>/ Inventory</p>
-          <h1>
-            Premium stock.<span>Ready for Swedish roads.</span>
-          </h1>
-          <p className={styles.lead}>
-            Browse inspected American trucks, SUVs and performance cars selected with
-            the same premium Wrangler feel you see across the showroom.
-          </p>
-          <div className={styles.heroActions}>
-            <Link href="/contact" className={styles.primaryButton}>
-              Book a viewing <ArrowRight aria-hidden="true" />
-            </Link>
-            <Link href="/cars" className={styles.secondaryButton}>
-              Model guides
-            </Link>
-          </div>
-          <div className={styles.heroStats}>
-            {highlights.map((highlight) => (
-              <span key={highlight}>{highlight}</span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className={styles.content}>
         <div className={styles.sectionIntro}>
           <div>
-            <p className={styles.kicker}>/ Available vehicles</p>
+            <p className={styles.kicker}>/ Tillgängliga bilar</p>
             <h2>
-              Handpicked <span>American metal.</span>
+              Handplockade <span>amerikanska bilar.</span>
             </h2>
           </div>
           <p>
-            Every listing is presented in a cleaner showroom-style card so the
-            vehicle, specification and next step stay easy to scan.
+            Varje bil presenteras tydligt med bild, specifikation och nästa steg så
+            att lagret är enkelt att överblicka.
           </p>
         </div>
 
         <div className={styles.toolbar}>
           <span>
-            <strong>{stockVehicles.length}</strong> vehicles found
+            <strong>{stockVehicles.length}</strong> bilar i lager
           </span>
           <button className={styles.sortButton} type="button">
-            Newest first
+            Nyast först
           </button>
         </div>
 
         <div className={styles.layout}>
-          <aside className={styles.filters} aria-label="Inventory filters">
+          <aside className={styles.filters} aria-label="Lagerfilter">
             <div className={styles.filtersHead}>
               <span>
                 <SlidersHorizontal aria-hidden="true" />
-                <h2>Filters</h2>
+                <h2>Filter</h2>
               </span>
-              <button type="button">Clear all</button>
+              <button type="button">Rensa</button>
             </div>
             {filters.map((item) => (
               <label key={item} className={styles.filterField}>
@@ -123,7 +86,7 @@ export default function StockPage() {
               </label>
             ))}
             <button className={styles.applyButton} type="button">
-              Apply filters
+              Visa resultat
             </button>
           </aside>
 
@@ -162,7 +125,7 @@ export default function StockPage() {
                       </span>
                     </div>
                     <Link href="/contact" className={styles.cardLink}>
-                      Enquire now <ArrowRight aria-hidden="true" />
+                      Kontakta oss <ArrowRight aria-hidden="true" />
                     </Link>
                   </div>
                 </article>
@@ -185,15 +148,15 @@ export default function StockPage() {
           <ShieldCheck aria-hidden="true" />
         </div>
         <div>
-          <p className={styles.kicker}>/ Upgrade support</p>
-          <h3>Trade-in or order something specific?</h3>
+          <p className={styles.kicker}>/ Inbyte eller import</p>
+          <h3>Vill du byta in eller beställa något särskilt?</h3>
           <p>
-            We can value your current vehicle, source a custom American import
-            and arrange delivery anywhere in Sweden.
+            Vi kan värdera din nuvarande bil, hitta rätt amerikansk import och ordna
+            leverans i hela Sverige.
           </p>
         </div>
         <Link href="/contact" className={styles.tradeButton}>
-          Value my trade-in <ArrowRight aria-hidden="true" />
+          Värdera min bil <ArrowRight aria-hidden="true" />
         </Link>
       </section>
     </main>

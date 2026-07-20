@@ -816,3 +816,342 @@
     font-size: 96px;
   }
 }
+
+.sectionLead {
+  max-width: 720px;
+  margin: -12px 0 0;
+  color: #d8dcdf;
+  font-size: 16px;
+  line-height: 1.75;
+}
+
+@media (min-width: 1100px) {
+  .navbar nav {
+    font-size: 18px;
+    gap: 62px;
+  }
+
+  .navLink,
+  .activeNavLink {
+    font-size: 18px;
+  }
+
+  .dropdownLink,
+  .activeDropdownLink {
+    font-size: 15px;
+  }
+
+  .carGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .sectionHead h2 {
+    max-width: 980px;
+    font-size: clamp(30px, 3vw, 48px);
+    line-height: 1.08;
+  }
+
+  .aboutStrip {
+    display: block;
+  }
+}
+
+/* CLIENT REQUEST REFINEMENTS */
+.authorizedPanel {
+  position: relative;
+  z-index: 2;
+  align-self: flex-start;
+  margin-left: auto;
+  padding: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 18px;
+  background: rgba(5, 6, 7, 0.7);
+  backdrop-filter: blur(10px);
+}
+
+.authorizedPanel p {
+  margin: 0 0 14px;
+  color: #d8dcdf;
+  font-family: Oswald, sans-serif;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-align: right;
+  text-transform: uppercase;
+}
+
+.authorizedPanel div {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.brandLogoText {
+  min-width: 116px;
+  padding: 14px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.quickOverview,
+.stockPreview,
+.contactStrip {
+  position: relative;
+  padding: 54px 22px;
+  border-bottom: 1px solid var(--border);
+}
+
+.quickIntro {
+  max-width: 820px;
+  margin-bottom: 30px;
+}
+
+.quickIntro h2,
+.stockPreview h2,
+.contactStrip h2 {
+  margin: 0 0 18px;
+  font-family: Oswald, sans-serif;
+  font-size: clamp(32px, 6vw, 58px);
+  line-height: 0.98;
+  text-transform: uppercase;
+}
+
+.quickIntro p:not(.redLabel),
+.contactCopy p:not(.redLabel) {
+  color: #d8dcdf;
+  line-height: 1.8;
+}
+
+.quickGrid,
+.pillarGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.quickCard,
+.pillarCard {
+  min-height: 190px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: linear-gradient(180deg, rgba(17, 23, 27, 0.95), rgba(8, 11, 14, 0.95));
+  color: inherit;
+  text-decoration: none;
+}
+
+.quickCard svg,
+.pillarCard svg,
+.contactCards svg {
+  color: var(--red);
+}
+
+.quickCard h3 {
+  margin: 16px 0 10px;
+  font-family: Oswald, sans-serif;
+  font-size: 24px;
+  line-height: 1.05;
+  text-transform: uppercase;
+}
+
+.quickCard p,
+.pillarCard span {
+  color: #cfd6dc;
+  line-height: 1.65;
+}
+
+.pillarGrid {
+  margin-top: 18px;
+}
+
+.pillarCard {
+  min-height: 150px;
+}
+
+.pillarCard strong,
+.pillarCard span {
+  display: block;
+}
+
+.pillarCard strong {
+  margin: 14px 0 8px;
+  font-family: Oswald, sans-serif;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+.quickClosing {
+  margin: 28px 0 0;
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  font-size: 22px;
+  text-transform: uppercase;
+}
+
+.stockPreview .sectionHead {
+  align-items: flex-end;
+}
+
+.contactStrip {
+  min-height: 320px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: center;
+  overflow: hidden;
+}
+
+.contactStrip > img {
+  object-fit: cover;
+  opacity: 0.34;
+}
+
+.contactOverlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(90deg, #050607 0%, rgba(5, 6, 7, 0.88) 48%, rgba(5, 6, 7, 0.68) 100%);
+}
+
+.contactCopy,
+.contactCards {
+  position: relative;
+  z-index: 2;
+}
+
+.contactCards {
+  display: grid;
+  gap: 12px;
+}
+
+.contactCards a {
+  min-height: 72px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(7, 9, 11, 0.75);
+  color: #fff;
+  font-family: Oswald, sans-serif;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.carCard {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .authorizedPanel {
+    display: none;
+  }
+}
+
+@media (min-width: 700px) {
+  .quickGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .pillarGrid,
+  .contactCards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero {
+    align-items: flex-start;
+  }
+
+  .hero h1 {
+    font-size: clamp(86px, 6.6vw, 128px);
+  }
+
+  .heroText {
+    max-width: 680px;
+  }
+
+  .quickOverview,
+  .stockPreview,
+  .contactStrip {
+    padding: 72px 64px;
+  }
+
+  .quickGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .pillarGrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .contactStrip {
+    grid-template-columns: 0.9fr 1.1fr;
+  }
+
+  .contactCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 1500px) {
+  .quickOverview,
+  .stockPreview,
+  .contactStrip {
+    padding-left: 88px;
+    padding-right: 88px;
+  }
+}
+
+/* Keep client headline to max two lines on wide screens */
+.headlineLine {
+  display: block;
+  white-space: nowrap !important;
+}
+
+.headlineLineWhite {
+  color: white !important;
+  display: block;
+  white-space: nowrap !important;
+}
+
+@media (min-width: 900px) {
+  .heroContent {
+    max-width: min(980px, 74vw);
+  }
+
+  .hero h1 {
+    font-size: clamp(68px, 7.2vw, 118px);
+    line-height: 0.9;
+  }
+}
+
+@media (min-width: 1100px) {
+  .heroContent {
+    max-width: min(1120px, 76vw);
+  }
+
+  .hero h1 {
+    font-size: clamp(78px, 6.8vw, 124px);
+  }
+}
+
+@media (max-width: 899px) {
+  .headlineLine {
+    white-space: normal !important;
+  }
+}

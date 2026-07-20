@@ -43,7 +43,7 @@ export default function SiteFooter() {
       <div>
         <h4>Kontakta oss</h4>
         <p>
-          <Phone size={14} aria-hidden="true" /> +46 70 123 45 67
+          <Phone size={14} aria-hidden="true" /> +46 76 774 25 02
         </p>
         <p>
           <Mail size={14} aria-hidden="true" /> info@thewrangler.se
