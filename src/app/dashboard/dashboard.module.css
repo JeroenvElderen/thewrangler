@@ -325,3 +325,37 @@
   background: rgba(251, 191, 36, .13);
   color: #fbbf24;
 }
+
+.rowActions {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+}
+
+.rowActions button {
+  align-items: center;
+  background: #121820;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 6px;
+  color: #8db5ff;
+  display: inline-flex;
+  gap: 6px;
+  padding: 7px;
+}
+
+.rowActions button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.rowActions button svg {
+  margin-right: 0;
+}
+
+.deleteAction {
+  color: #ff8585 !important;
+}
+
+.deleteAction span {
+  font-size: 12px;
+}

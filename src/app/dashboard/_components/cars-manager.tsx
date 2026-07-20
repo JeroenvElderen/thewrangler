@@ -1,20 +1,20 @@
 
 "use client";
 
-import { useActionState, useEffect, useMemo, useState } from "react";
+import { useActionState, useEffect, useMemo, useState, useTransition } from "react";
 import { Plus, X } from "lucide-react";
 
 import type { Car } from "@/data/cars";
 import styles from "../dashboard.module.css";
 import { getCars, getSupabaseClient } from "@/lib/supabase/cars";
-import { createCar, type CreateCarState } from "../cars/actions";
+import { createCar, deleteCar, updateCar, type CarActionState } from "../cars/actions";
 import CarsSection from "./cars-section";
 
 type CarsManagerProps = {
   cars: Car[];
 };
 
-const initialState: CreateCarState = { message: "" };
+const initialState: CarActionState = { message: "" };
 
 function createPreviewTitle(make: string, model: string, trim: string, year: string) {
   return [make, model, trim, year].map((part) => part.trim()).filter(Boolean).join(" ");
@@ -24,15 +24,76 @@ export default function CarsManager({ cars }: CarsManagerProps) {
   const [liveCars, setLiveCars] = useState(cars);
   const [isRealtimeConnected, setIsRealtimeConnected] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(false);
+  const [editingCar, setEditingCar] = useState<Car | null>(null);
+  const [deleteState, setDeleteState] = useState<CarActionState>(initialState);
+  const [deletingCarId, setDeletingCarId] = useState<string | null>(null);
+  const [isDeleting, startDeleteTransition] = useTransition();
   const [make, setMake] = useState("");
   const [model, setModel] = useState("");
   const [trim, setTrim] = useState("");
   const [year, setYear] = useState("");
-  const [state, formAction, isPending] = useActionState(createCar, initialState);
+  const [createState, createFormAction, isCreating] = useActionState(createCar, initialState);
+  const [updateState, updateFormAction, isUpdating] = useActionState(updateCar, initialState);
+  const state = editingCar ? updateState : createState;
+  const formAction = editingCar ? updateFormAction : createFormAction;
+  const isPending = editingCar ? isUpdating : isCreating;
   const previewTitle = useMemo(
     () => createPreviewTitle(make, model, trim, year),
     [make, model, trim, year],
   );
+
+  function openCreateForm() {
+    setEditingCar(null);
+    setMake("");
+    setModel("");
+    setTrim("");
+    setYear("");
+    setIsFormOpen((current) => !current || editingCar !== null);
+  }
+
+  function openEditForm(car: Car) {
+    setEditingCar(car);
+    setMake(car.make);
+    setModel(car.model);
+    setTrim(car.trim ?? "");
+    setYear(String(car.year));
+    setDeleteState(initialState);
+    setIsFormOpen(true);
+  }
+
+  function closeForm() {
+    setIsFormOpen(false);
+    setEditingCar(null);
+    setMake("");
+    setModel("");
+    setTrim("");
+    setYear("");
+  }
+
+  function handleDelete(car: Car) {
+    const confirmed = window.confirm(`Delete ${car.title}? This cannot be undone.`);
+
+    if (!confirmed) {
+      return;
+    }
+
+    setDeletingCarId(car.id);
+    setDeleteState(initialState);
+
+    startDeleteTransition(async () => {
+      const result = await deleteCar(car.id);
+      setDeleteState(result);
+      setDeletingCarId(null);
+
+      if (result.ok) {
+        setLiveCars((currentCars) => currentCars.filter((currentCar) => currentCar.id !== car.id));
+
+        if (editingCar?.id === car.id) {
+          closeForm();
+        }
+      }
+    });
+  }
 
   useEffect(() => {
     const supabase = getSupabaseClient();
@@ -74,7 +135,7 @@ export default function CarsManager({ cars }: CarsManagerProps) {
         <button
           className={styles.primary}
           type="button"
-          onClick={() => setIsFormOpen((current) => !current)}
+          onClick={isFormOpen ? closeForm : openCreateForm}
         >
           {isFormOpen ? <X size={15} /> : <Plus size={15} />}
           {isFormOpen ? "Close Form" : "Add New Car"}
@@ -85,9 +146,11 @@ export default function CarsManager({ cars }: CarsManagerProps) {
         <article className={styles.editorCard}>
           <div className={styles.cardHeader}>
             <div>
-              <h2>Add new car</h2>
+              <h2>{editingCar ? "Edit car" : "Add new car"}</h2>
               <p className={styles.formHint}>
-                Fill the essentials. Title, slug, currency, status, and views are handled automatically.
+                {editingCar
+                  ? "Update the listing details. Title and slug are regenerated from make, model, trim, and year."
+                  : "Fill the essentials. Title, slug, currency, and views are handled automatically."}
               </p>
             </div>
             <div className={styles.headerBadges}>
@@ -97,7 +160,8 @@ export default function CarsManager({ cars }: CarsManagerProps) {
               </span>
             </div>
           </div>
-          <form action={formAction} className={styles.carForm}>
+          <form action={formAction} className={styles.carForm} key={editingCar?.id ?? "new-car"}>
+            {editingCar ? <input name="id" type="hidden" value={editingCar.id} /> : null}
             <label>
               Make
               <input name="make" required placeholder="Jeep" value={make} onChange={(event) => setMake(event.target.value)} />
@@ -116,60 +180,68 @@ export default function CarsManager({ cars }: CarsManagerProps) {
             </label>
             <label>
               Price (SEK)
-              <input name="price_amount" type="number" min="0" step="1" required placeholder="649000" />
+              <input name="price_amount" type="number" min="0" step="1" required placeholder="649000" defaultValue={editingCar?.priceAmount} />
+            </label>
+            <label>
+              Status
+              <select name="status" defaultValue={editingCar?.status.toLowerCase() ?? "draft"}>
+                <option value="draft">Draft</option>
+                <option value="published">Published</option>
+                <option value="archived">Archived</option>
+              </select>
             </label>
             <label>
               Mileage (km)
-              <input name="mileage_km" type="number" min="0" step="1" placeholder="42000" />
+              <input name="mileage_km" type="number" min="0" step="1" placeholder="42000" defaultValue={editingCar?.mileageKm} />
             </label>
             <label>
               Fuel type
-              <input name="fuel_type" defaultValue="Bensin" />
+              <input name="fuel_type" defaultValue={editingCar?.fuelType ?? "Bensin"} />
             </label>
             <label>
               Transmission
-              <input name="transmission" defaultValue="Automatic" />
+              <input name="transmission" defaultValue={editingCar?.transmission ?? "Automatic"} />
             </label>
             <label>
               Drivetrain
-              <input name="drivetrain" defaultValue="4x4" />
+              <input name="drivetrain" defaultValue={editingCar?.drivetrain ?? "4x4"} />
             </label>
             <label>
               Location
-              <input name="location" defaultValue="Stockholm" />
+              <input name="location" defaultValue={editingCar?.location ?? "Stockholm"} />
             </label>
             <details className={styles.optionalFields}>
               <summary>Optional details</summary>
               <div>
                 <label>
                   Image URL
-                  <input name="image_url" placeholder="/car1.png or https://..." />
+                  <input name="image_url" placeholder="/car1.png or https://..." defaultValue={editingCar?.image} />
                 </label>
                 <label>
                   Exterior color
-                  <input name="exterior_color" placeholder="Black" />
+                  <input name="exterior_color" placeholder="Black" defaultValue={editingCar?.exteriorColor} />
                 </label>
                 <label>
                   Interior color
-                  <input name="interior_color" placeholder="Black leather" />
+                  <input name="interior_color" placeholder="Black leather" defaultValue={editingCar?.interiorColor} />
                 </label>
                 <label>
                   Badge
-                  <input name="badge" placeholder="Premium-spec" />
+                  <input name="badge" placeholder="Premium-spec" defaultValue={editingCar?.badge} />
                 </label>
                 <label className={styles.checkboxLabel}>
-                  <input name="is_featured" type="checkbox" value="true" />
+                  <input name="is_featured" type="checkbox" value="true" defaultChecked={editingCar?.isFeatured} />
                   Featured car
                 </label>
               </div>
             </details>
             <div className={styles.generatedSummary}>
               <strong>Generated listing:</strong> {previewTitle || "Add make, model, and year to preview the title."}
-              <span>Saved as Draft · 0 views · SEK</span>
+              <span>{editingCar ? `${editingCar.status} · ${editingCar.views.toLocaleString()} views · SEK` : "Saved as Draft · 0 views · SEK"}</span>
             </div>
             <div className={styles.formActions}>
               <button className={styles.primary} type="submit" disabled={isPending}>
-                {isPending ? "Saving..." : "Save car"}
+                {isPending ? "Saving..." : editingCar ? "Update car" : "Save car"}
               </button>
               {state.message ? <p className={state.ok ? styles.successMessage : styles.errorMessage}>{state.message}</p> : null}
             </div>
@@ -177,7 +249,9 @@ export default function CarsManager({ cars }: CarsManagerProps) {
         </article>
       ) : null}
 
-      <CarsSection cars={liveCars} />
+      {deleteState.message ? <p className={deleteState.ok ? styles.successMessage : styles.errorMessage}>{deleteState.message}</p> : null}
+
+      <CarsSection cars={liveCars} onEdit={openEditForm} onDelete={handleDelete} deletingCarId={isDeleting ? deletingCarId : null} />
     </>
   );
 }

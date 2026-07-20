@@ -3,12 +3,14 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@supabase/supabase-js";
 
-export type CreateCarState = {
+export type CarActionState = {
   ok?: boolean;
   message: string;
 };
 
-type CarInsert = {
+type CarStatusValue = "draft" | "published" | "archived";
+
+type CarPayload = {
   slug: string;
   title: string;
   make: string;
@@ -17,7 +19,7 @@ type CarInsert = {
   year: number;
   price_amount: number;
   currency: "SEK";
-  status: "draft";
+  status: CarStatusValue;
   image_url: string;
   mileage_km: number | null;
   fuel_type: string | null;
@@ -27,7 +29,6 @@ type CarInsert = {
   interior_color: string | null;
   location: string | null;
   badge: string | null;
-  views: number;
   is_featured: boolean;
 };
 
@@ -48,6 +49,11 @@ function numberValue(formData: FormData, key: string) {
   return Number.isFinite(value) ? value : null;
 }
 
+function statusValue(formData: FormData) {
+  const status = stringValue(formData, "status");
+  return ["draft", "published", "archived"].includes(status) ? (status as CarStatusValue) : "draft";
+}
+
 function slugify(value: string) {
   return value
     .toLowerCase()
@@ -57,25 +63,23 @@ function slugify(value: string) {
     .replace(/^-+|-+$/g, "");
 }
 
-function getSupabaseClient() {
+function getSupabaseAdminClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
-  if (!supabaseUrl || !supabaseAnonKey) {
+  if (!supabaseUrl || !supabaseServiceRoleKey) {
     return null;
   }
 
-  return createClient(supabaseUrl, supabaseAnonKey, {
+  return createClient(supabaseUrl, supabaseServiceRoleKey, {
     auth: {
+      autoRefreshToken: false,
       persistSession: false,
     },
   });
 }
 
-export async function createCar(
-  _previousState: CreateCarState,
-  formData: FormData,
-): Promise<CreateCarState> {
+function carPayloadFromFormData(formData: FormData): CarActionState | CarPayload {
   const make = stringValue(formData, "make");
   const model = stringValue(formData, "model");
   const trim = nullableStringValue(formData, "trim");
@@ -87,10 +91,9 @@ export async function createCar(
   }
 
   const title = [make, model, trim, year].filter(Boolean).join(" ");
-  const slug = slugify(title);
 
-  const car: CarInsert = {
-    slug,
+  return {
+    slug: slugify(title),
     title,
     make,
     model,
@@ -98,7 +101,7 @@ export async function createCar(
     year,
     price_amount: priceAmount,
     currency: "SEK",
-    status: "draft",
+    status: statusValue(formData),
     image_url: stringValue(formData, "image_url") || "/car1.png",
     mileage_km: numberValue(formData, "mileage_km"),
     fuel_type: nullableStringValue(formData, "fuel_type"),
@@ -108,23 +111,93 @@ export async function createCar(
     interior_color: nullableStringValue(formData, "interior_color"),
     location: nullableStringValue(formData, "location"),
     badge: nullableStringValue(formData, "badge"),
-    views: 0,
     is_featured: formData.get("is_featured") === "true",
   };
+}
 
-  const supabase = getSupabaseClient();
+export async function createCar(
+  _previousState: CarActionState,
+  formData: FormData,
+): Promise<CarActionState> {
+  const car = carPayloadFromFormData(formData);
 
-  if (!supabase) {
-    return { ok: false, message: "Supabase environment variables are not configured." };
+  if ("message" in car) {
+    return car;
   }
 
-  const { error } = await supabase.from("cars").insert(car);
+  const supabase = getSupabaseAdminClient();
+
+  if (!supabase) {
+    return { ok: false, message: "Supabase admin environment variables are not configured." };
+  }
+
+  const { error } = await supabase.from("cars").insert({ ...car, views: 0 });
 
   if (error) {
     return { ok: false, message: `Failed to save car: ${error.message}` };
   }
 
   revalidatePath("/dashboard/cars");
+  revalidatePath("/(site)/cars", "page");
 
-  return { ok: true, message: `${title} saved as a draft in SEK.` };
+  return { ok: true, message: `${car.title} saved.` };
+}
+
+export async function updateCar(
+  _previousState: CarActionState,
+  formData: FormData,
+): Promise<CarActionState> {
+  const id = stringValue(formData, "id");
+
+  if (!id) {
+    return { ok: false, message: "Select a car before updating." };
+  }
+
+  const car = carPayloadFromFormData(formData);
+
+  if ("message" in car) {
+    return car;
+  }
+
+  const supabase = getSupabaseAdminClient();
+
+  if (!supabase) {
+    return { ok: false, message: "Supabase admin environment variables are not configured." };
+  }
+
+  const { error } = await supabase.from("cars").update(car).eq("id", id);
+
+  if (error) {
+    return { ok: false, message: `Failed to update car: ${error.message}` };
+  }
+
+  revalidatePath("/dashboard/cars");
+  revalidatePath("/(site)/cars", "page");
+  revalidatePath("/(site)/cars/[slug]", "page");
+
+  return { ok: true, message: `${car.title} updated.` };
+}
+
+export async function deleteCar(id: string): Promise<CarActionState> {
+  if (!id) {
+    return { ok: false, message: "Select a car before deleting." };
+  }
+
+  const supabase = getSupabaseAdminClient();
+
+  if (!supabase) {
+    return { ok: false, message: "Supabase admin environment variables are not configured." };
+  }
+
+  const { error } = await supabase.from("cars").delete().eq("id", id);
+
+  if (error) {
+    return { ok: false, message: `Failed to delete car: ${error.message}` };
+  }
+
+  revalidatePath("/dashboard/cars");
+  revalidatePath("/(site)/cars", "page");
+  revalidatePath("/(site)/cars/[slug]", "page");
+
+  return { ok: true, message: "Car deleted." };
 }

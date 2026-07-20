@@ -1,6 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { Copy, Edit3, Trash2, TrendingUp } from "lucide-react";
+import {Edit3, Trash2, TrendingUp } from "lucide-react";
 import type { Car } from "@/data/cars";
 import styles from "../dashboard.module.css";
 
@@ -9,6 +11,9 @@ type CarsSectionProps = {
   variant?: "table" | "top-performing";
   title?: string;
   limit?: number;
+  onEdit?: (car: Car) => void;
+  onDelete?: (car: Car) => void;
+  deletingCarId?: string | null;
 };
 
 export default function CarsSection({
@@ -16,6 +21,9 @@ export default function CarsSection({
   variant = "table",
   title = "Car Listings",
   limit,
+  onEdit,
+  onDelete,
+  deletingCarId,
 }: CarsSectionProps) {
   const visibleCars = typeof limit === "number" ? cars.slice(0, limit) : cars;
 
@@ -75,7 +83,23 @@ export default function CarsSection({
               <td>{car.year}</td>
               <td>{car.price}</td>
               <td><span className={car.status === "Draft" ? styles.draft : styles.published}>{car.status}</span></td>
-              <td><Edit3 size={14} /><Copy size={14} /><Trash2 size={14} /></td>
+              <td>
+                <div className={styles.rowActions}>
+                  <button type="button" onClick={() => onEdit?.(car)} disabled={!onEdit} aria-label={`Edit ${car.title}`}>
+                    <Edit3 size={14} />
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.deleteAction}
+                    onClick={() => onDelete?.(car)}
+                    disabled={!onDelete || deletingCarId === car.id}
+                    aria-label={`Delete ${car.title}`}
+                  >
+                    <Trash2 size={14} />
+                    {deletingCarId === car.id ? <span>Deleting</span> : null}
+                  </button>
+                </div>
+              </td>
             </tr>
           ))}
         </tbody>
