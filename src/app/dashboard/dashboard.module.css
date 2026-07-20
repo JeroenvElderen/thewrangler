@@ -170,3 +170,158 @@
   gap: 13px;
   max-width: 760px;
 }
+
+.carForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.carForm label {
+  display: grid;
+  gap: 6px;
+  color: #aeb8c3;
+  font-size: 12px;
+}
+
+.carForm input,
+.carForm select {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 7px;
+  background: transparent;
+  color: #eef4ff;
+  outline: 0;
+  padding: 11px;
+}
+
+.carForm select option {
+  background: #11161c;
+  color: #eef4ff;
+}
+
+.currencyNote {
+  color: #5ce28d;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.checkboxLabel {
+  align-items: center;
+  display: flex !important;
+  gap: 9px !important;
+}
+
+.checkboxLabel input {
+  width: auto;
+}
+
+.formActions {
+  align-items: center;
+  display: flex;
+  gap: 12px;
+  grid-column: 1 / -1;
+}
+
+.successMessage,
+.errorMessage {
+  margin: 0;
+  font-size: 13px;
+}
+
+.successMessage {
+  color: #5ce28d;
+}
+
+.errorMessage {
+  color: #ff8585;
+}
+
+@media (max-width: 700px) {
+  .carForm {
+    grid-template-columns: 1fr;
+  }
+
+  .formActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+.formHint {
+  color: #9aa6b2;
+  font-size: 12px;
+  margin: 5px 0 0;
+}
+
+.optionalFields {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 8px;
+  padding: 11px;
+}
+
+.optionalFields summary {
+  color: #8db5ff;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.optionalFields div {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+  margin-top: 13px;
+}
+
+.generatedSummary {
+  grid-column: 1 / -1;
+  border: 1px solid rgba(94, 161, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  color: #dbeafe;
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+}
+
+.generatedSummary span {
+  color: #9fb3ca;
+  font-size: 12px;
+}
+
+@media (max-width: 700px) {
+  .optionalFields div {
+    grid-template-columns: 1fr;
+  }
+}
+
+.headerBadges {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+.liveBadge,
+.offlineBadge {
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+.liveBadge {
+  background: rgba(34, 197, 94, .14);
+  color: #5ce28d;
+}
+
+.offlineBadge {
+  background: rgba(251, 191, 36, .13);
+  color: #fbbf24;
+}
