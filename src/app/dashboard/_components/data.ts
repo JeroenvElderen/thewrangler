@@ -30,14 +30,7 @@ export const stats = [
   { icon: Mail, label: "Contact Messages", value: "32", delta: "-3.1% this week" },
 ];
 
-export const cars = [
-  ["/car1.png", "Jeep Wrangler Rubicon 2021", "Jeep", "Wrangler", "2021", "€54,950", "Published"],
-  ["/car2.png", "Jeep Wrangler Sahara 2022", "Jeep", "Wrangler", "2022", "€49,950", "Published"],
-  ["/car3.png", "Jeep Gladiator Rubicon 2021", "Jeep", "Gladiator", "2021", "€57,950", "Published"],
-  ["/car4.png", "Jeep Wrangler Sport 2020", "Jeep", "Wrangler", "2020", "€38,950", "Draft"],
-  ["/car5.png", "Jeep Wrangler Unlimited 2021", "Jeep", "Wrangler", "2021", "€47,950", "Published"],
-  ["/car1.png", "Jeep Gladiator Overland 2022", "Jeep", "Gladiator", "2022", "€58,950", "Draft"],
-];
+export { cars } from "@/data/cars";
 
 export const activity = [
   ["Admin", "Updated car", "Jeep Wrangler Rubicon 2021", "May 18, 2024 10:34 AM"],
