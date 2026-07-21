@@ -1,14 +1,6 @@
-import { users as fallbackUsers } from "@/app/dashboard/_components/data";
 import { cars as fallbackCars, type Car } from "@/data/cars";
 import { getCars, getSupabaseClient } from "./cars";
-
-export type DashboardUser = {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  status: "Active" | "Inactive";
-};
+import { getDashboardUsers, type DashboardUser } from "./users";
 
 export type InsightStat = {
   label: string;
@@ -35,16 +27,6 @@ export type DashboardInsights = {
   cars: Car[];
 };
 
-type UserRow = {
-  id?: string | number;
-  full_name?: string | null;
-  name?: string | null;
-  email?: string | null;
-  role?: string | null;
-  status?: string | null;
-  is_active?: boolean | null;
-};
-
 type CountableTable = "test_drive_requests" | "contact_messages" | "page_views";
 
 type PageViewRow = {
@@ -66,28 +48,8 @@ const fallbackTrafficSources: TrafficSource[] = [
   { label: "Referral", value: 7.7 },
 ];
 
-const fallbackDashboardUsers: DashboardUser[] = fallbackUsers.map((user) => ({
-  id: user[1],
-  name: user[0],
-  email: user[1],
-  role: user[2],
-  status: user[3] === "Inactive" ? "Inactive" : "Active",
-}));
-
 function formatNumber(value: number) {
   return new Intl.NumberFormat("en-US").format(value);
-}
-
-function mapUser(row: UserRow): DashboardUser {
-  const email = row.email ?? "unknown@thewrangler.com";
-
-  return {
-    id: String(row.id ?? email),
-    name: row.full_name ?? row.name ?? email.split("@")[0] ?? "Unknown user",
-    email,
-    role: row.role ?? "Viewer",
-    status: row.status === "Inactive" || row.is_active === false ? "Inactive" : "Active",
-  };
 }
 
 async function getTableCount(table: CountableTable) {
@@ -160,25 +122,6 @@ function getTrafficSourcesFromViews(pageViews: PageViewRow[] | null) {
       value: Number(((count / pageViews.length) * 100).toFixed(1)),
     }))
     .sort((first, second) => second.value - first.value);
-}
-
-export async function getDashboardUsers() {
-  const supabase = getSupabaseClient();
-
-  if (!supabase) {
-    return fallbackDashboardUsers;
-  }
-
-  const { data, error } = await supabase
-    .from("users")
-    .select("id, full_name, name, email, role, status, is_active")
-    .order("full_name", { ascending: true });
-
-  if (error || !data?.length) {
-    return fallbackDashboardUsers;
-  }
-
-  return (data as UserRow[]).map(mapUser);
 }
 
 export async function getDashboardInsights(): Promise<DashboardInsights> {

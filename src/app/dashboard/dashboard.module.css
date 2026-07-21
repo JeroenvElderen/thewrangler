@@ -359,3 +359,78 @@
 .deleteAction span {
   font-size: 12px;
 }
+
+.userForm {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.userForm label {
+  display: grid;
+  gap: 6px;
+  color: #aeb8c3;
+  font-size: 12px;
+}
+
+.userForm input,
+.userForm select {
+  width: 100%;
+  border: 1px solid rgba(148, 163, 184, 0.14);
+  border-radius: 7px;
+  background: transparent;
+  color: #eef4ff;
+  outline: 0;
+  padding: 11px;
+}
+
+.userForm input:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.userForm select option {
+  background: #11161c;
+  color: #eef4ff;
+}
+
+.roleGuide,
+.setupLink {
+  grid-column: 1 / -1;
+}
+
+.roleGuide {
+  display: grid;
+  gap: 8px;
+  border: 1px solid rgba(94, 161, 255, 0.22);
+  border-radius: 8px;
+  background: rgba(59, 130, 246, 0.1);
+  padding: 12px;
+}
+
+.roleGuide p,
+.setupLink {
+  color: #b7c2cf;
+  font-size: 12px;
+  margin: 0;
+}
+
+.roleGuide b {
+  color: #dbeafe;
+  display: inline-block;
+  min-width: 104px;
+}
+
+.setupLink {
+  overflow-wrap: anywhere;
+}
+
+.setupLink a {
+  color: #8db5ff;
+}
+
+@media (max-width: 700px) {
+  .userForm {
+    grid-template-columns: 1fr;
+  }
+}

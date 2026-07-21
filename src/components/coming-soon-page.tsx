@@ -1,14 +1,8 @@
 import Image from "next/image";
 import { Bell, CarFront, Cog, ShieldCheck, Tag } from "lucide-react";
+import ComingSoonCountdown from "./coming-soon-countdown";
 import SiteHeader from "./site-header";
 import styles from "./coming-soon-page.module.css";
-
-const countdown = [
-  ["24", "Days"],
-  ["08", "Hours"],
-  ["37", "Minutes"],
-  ["15", "Seconds"],
-];
 
 const expectations = [
   {
@@ -57,14 +51,7 @@ export default function ComingSoonPage() {
 
       <section className={styles.countdown}>
         <h2>Launching In</h2>
-        <div className={styles.countdownGrid}>
-          {countdown.map(([value, label]) => (
-            <article key={label}>
-              <strong>{value}</strong>
-              <span>{label}</span>
-            </article>
-          ))}
-        </div>
+        <ComingSoonCountdown />
       </section>
 
       <section className={styles.details}>
