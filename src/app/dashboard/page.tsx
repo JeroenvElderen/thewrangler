@@ -11,7 +11,7 @@ export default function DashboardPage() {
         <div>
           <p className={styles.eyebrow}>Admin CMS</p>
           <h1>Dashboard</h1>
-          <p>Welcome back, Admin! Here&apos;s what is happening across The Wrangler.</p>
+          <p>Welcome back, Admin! Here&apos;s what is happening across Nordic American Motors.</p>
         </div>
         <button className={styles.primary}><Plus size={15} /> Add New Car</button>
       </div>

@@ -20,7 +20,7 @@ export async function generateMetadata({
   }
 
   return {
-    title: `${page.model} ${page.trim} | The Wrangler`,
+    title: `${page.model} ${page.trim} | Nordic American Motors`,
     description: page.intro,
   };
 }

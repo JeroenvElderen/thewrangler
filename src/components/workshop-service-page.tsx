@@ -211,7 +211,7 @@ export default function WorkshopServicePage({ service }: WorkshopServicePageProp
             </section>
 
             <section className={styles.ctaPanel}>
-                <Image src="/car1.png" alt="The Wrangler verkstadsarbete" fill sizes="100vw" />
+                <Image src="/car1.png" alt="Nordic American Motors verkstadsarbete" fill sizes="100vw" />
                 <div>
                     <h2>{service.ctaTitle}</h2>
                     <p>{service.ctaText}</p>

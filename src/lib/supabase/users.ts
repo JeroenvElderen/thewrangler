@@ -43,7 +43,7 @@ export function normalizeRole(role?: string | null): DashboardRole {
 }
 
 export function mapUser(row: UserRow): DashboardUser {
-  const email = row.email ?? "unknown@thewrangler.com";
+  const email = row.email ?? "unknown@nordicamericanmotors.se";
 
   return {
     id: String(row.id ?? email),

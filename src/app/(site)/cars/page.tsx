@@ -3,9 +3,9 @@ import CarModelsPage from "@/components/car-models-page";
 import { carBrandFilters, carModelFamilies } from "@/data/car-models";
 
 export const metadata: Metadata = {
-  title: "Cars & Models | The Wrangler",
+  title: "Cars & Models | Nordic American Motors",
   description:
-    "Explore The Wrangler's informative model guides and compare trims by brand.",
+    "Explore Nordic American Motors' informative model guides and compare trims by brand.",
 };
 
 type CarsPageProps = {

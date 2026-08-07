@@ -4,7 +4,7 @@ import "./globals.css";
 
 
 export const metadata: Metadata = {
-  title: "The Wrangler | American Trucks in Sweden",
+  title: "Nordic American Motors | American Trucks in Sweden",
   description: "Premium American trucks and cars imported for Swedish roads.",
 };
 

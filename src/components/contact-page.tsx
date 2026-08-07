@@ -44,7 +44,7 @@ const contactDetails = [
     {
         icon: Mail,
         title: "E-post",
-        lines: ["info@thewrangler.se"],
+        lines: ["info@nordicamericanmotors.se"],
     },
     {
         icon: MapPin,
@@ -175,7 +175,7 @@ export default function ContactPage() {
             <label className={styles.consent}>
               <input type="checkbox" name="consent" />
               <span>
-                Jag godkänner att The Wrangler kontaktar mig om mitt ärende.
+                Jag godkänner att Nordic American Motors kontaktar mig om mitt ärende.
               </span>
             </label>
             <button type="submit">
@@ -221,7 +221,7 @@ export default function ContactPage() {
           <h2>Se bilarna på plats.</h2>
           <p>
             Kom förbi, ta en kaffe och upplev utvalda amerikanska pickups i en
-            miljö som speglar känslan bakom The Wrangler.
+            miljö som speglar känslan bakom Nordic American Motors.
           </p>
           <Link
             href="https://maps.google.com"
@@ -238,7 +238,7 @@ export default function ContactPage() {
             <MapPin size={34} aria-hidden="true" />
           </span>
           <div className={styles.mapLabel}>
-            <strong>The Wrangler</strong>
+            <strong>Nordic American Motors</strong>
             <span>American Car Dealer</span>
             <small>Strängnäs, Sweden</small>
           </div>
@@ -249,13 +249,13 @@ export default function ContactPage() {
         <div className={styles.whyImage}>
           <Image
             src="/car5.png"
-            alt="Pickup framför The Wrangler showroom"
+            alt="Pickup framför Nordic American Motors showroom"
             fill
             sizes="(max-width: 900px) 100vw, 42vw"
           />
         </div>
         <div className={styles.whyContent}>
-          <p className={styles.kicker}>/ Varför The Wrangler?</p>
+          <p className={styles.kicker}>/ Varför Nordic American Motors?</p>
           <h2>Mer än en bilhall.</h2>
           <p>
             Vi kombinerar amerikansk bilkultur med svensk trygghet, tydliga

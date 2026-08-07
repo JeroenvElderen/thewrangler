@@ -13,7 +13,7 @@ export function AdminSidebar() {
   return (
     <aside className={styles.sidebar}>
       <div className={styles.logoRow}>
-        <Image src="/Wrangler_Logo.svg" alt="The Wrangler" width={118} height={34} />
+        <Image src="/NordicAmericanMotors_logo.svg" alt="Nordic American Motors" width={118} height={77} />
         <Menu size={16} />
       </div>
       <nav className={styles.nav} aria-label="Admin navigation">

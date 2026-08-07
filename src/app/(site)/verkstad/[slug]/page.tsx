@@ -22,12 +22,12 @@ export async function generateMetadata({
 
     if (!service) {
         return {
-            title: "Workshop Service | The Wrangler",
+            title: "Workshop Service | Nordic American Motors",
         };
     }
 
     return {
-        title: `${service.title} | Workshop | The Wrangler`,
+        title: `${service.title} | Workshop | Nordic American Motors`,
         description: service.intro,
     };
 }
