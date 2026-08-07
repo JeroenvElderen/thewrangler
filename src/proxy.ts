@@ -5,7 +5,8 @@ const HOME_PATH = "/";
 const LAUNCH_AT = new Date("2026-08-20T00:00:00+02:00").getTime();
 
 export function proxy(request: NextRequest) {
-  const hasLaunched = Date.now() >= LAUNCH_AT;
+  const hasLaunched =
+    process.env.NODE_ENV === "development" || Date.now() >= LAUNCH_AT;
   const url = request.nextUrl.clone();
 
   if (hasLaunched) {
