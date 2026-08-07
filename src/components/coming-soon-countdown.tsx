@@ -15,6 +15,7 @@ type TimeRemaining = {
   hours: number;
   minutes: number;
   seconds: number;
+  timeLeft: number;
 };
 
 function getTimeRemaining(): TimeRemaining {
@@ -25,6 +26,7 @@ function getTimeRemaining(): TimeRemaining {
     hours: Math.floor((timeLeft % DAY) / HOUR),
     minutes: Math.floor((timeLeft % HOUR) / MINUTE),
     seconds: Math.floor((timeLeft % MINUTE) / SECOND),
+    timeLeft,
   };
 }
 
@@ -36,9 +38,20 @@ export default function ComingSoonCountdown() {
   const [timeRemaining, setTimeRemaining] = useState<TimeRemaining>(getTimeRemaining);
 
   useEffect(() => {
-    const intervalId = window.setInterval(() => {
-      setTimeRemaining(getTimeRemaining());
-    }, SECOND);
+    const updateCountdown = () => {
+      const nextTimeRemaining = getTimeRemaining();
+
+      if (nextTimeRemaining.timeLeft === 0) {
+        window.location.replace("/");
+        return;
+      }
+
+      setTimeRemaining(nextTimeRemaining);
+    };
+
+    updateCountdown();
+
+    const intervalId = window.setInterval(updateCountdown, SECOND);
 
     return () => window.clearInterval(intervalId);
   }, []);
