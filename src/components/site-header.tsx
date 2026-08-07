@@ -58,11 +58,11 @@ export default function SiteHeader() {
 
   return (
     <header ref={headerRef} className={styles.navbar}>
-      <Link href="/" className={styles.logo} aria-label="The Wrangler">
+      <Link href="/" className={styles.logo} aria-label="Nordic American Motors">
         <Image
-          src="/Wrangler_Logo.svg"
-          alt="The Wrangler"
-          width={150}
+          src="/NordicAmericanMotors_logo.svg"
+          alt="Nordic American Motors"
+          width={154}
           height={100}
           priority
           className={styles.logoImage}

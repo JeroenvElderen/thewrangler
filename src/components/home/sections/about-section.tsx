@@ -5,7 +5,7 @@ export function AboutSection() {
   return (
     <section className={styles.aboutStrip}>
       <div>
-        <p className={styles.redLabel}>The Wrangler</p>
+        <p className={styles.redLabel}>Nordic American Motors</p>
         <h2>Mer än bara en bilhandlare</h2>
         <p>
           Vi brinner för amerikanska bilar. Från klassiska legender till moderna prestandamaskiner – vi ger dig det bästa, noggrant utvalt och levererat med stolthet.

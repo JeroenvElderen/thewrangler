@@ -51,7 +51,7 @@ const experience = [
   },
   {
     icon: MapPin,
-    title: "Wrangler Experience Center",
+    title: "Nordic American Motors Experience Center",
     text: "Välkommen till vår anläggning vid Eskilstunavägen i Strängnäs — även om du bara vill titta in.",
   },
   {
@@ -134,7 +134,7 @@ export default function AboutPage() {
               ],
               [
                 "2025",
-                "The Wrangler grundas",
+                "Nordic American Motors grundas",
                 "Verksamheten startade vid Eskilstunavägen i Strängnäs med fokus på amerikanska pickup- och terrängfordon.",
               ],
               [
@@ -157,15 +157,15 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section id="vad-ar-the-wrangler" className={styles.experience}>
+      <section id="vad-ar-nordic-american-motors" className={styles.experience}>
         <div className={styles.sectionIntro}>
-          <p className={styles.smallKicker}>/ Vad är The Wrangler?</p>
+          <p className={styles.smallKicker}>/ Vad är Nordic American Motors?</p>
           <h2>Frihet, personlighet och amerikansk bilkultur.</h2>
           <p>
-            Ordet wrangler förmedlar känslan av frihet — och det är precis vad
-            vi eftersträvar. Hos oss handlar det inte om opersonliga bilhallar
-            eller industriområden, utan om omtanke, passion och en upplevelse
-            som får varje besökare att lämna med ett leende.
+            Nordic American Motors förenar nordisk kvalitet med amerikansk
+            bilkultur. Hos oss handlar det inte om opersonliga bilhallar, utan om
+            omtanke, passion och en upplevelse som får varje besökare att lämna
+            med ett leende.
           </p>
         </div>
         <div className={styles.infoGrid}>
@@ -184,7 +184,7 @@ export default function AboutPage() {
           <p className={styles.smallKicker}>/ Våra produkter</p>
           <h2>Auktoriserad importör och återförsäljare.</h2>
           <p>
-            The Wrangler är registrerad och auktoriserad importör och
+            Nordic American Motors är registrerad och auktoriserad importör och
             återförsäljare av amerikanska pickup- och terrängfordon från Jeep,
             Dodge, GMC, Ford och Chevrolet.
           </p>
@@ -206,14 +206,15 @@ export default function AboutPage() {
           <h2>Du köper en bil. Vi ser till att du njuter av den.</h2>
           <p>
             Alla nya bilar omfattas av 2 års nybilsgaranti och alla begagnade
-            bilar omfattas av 12 månaders garanti. Servar du bilen hos The
-            Wrangler ingår alltid en kostnadsfri lånebil — naturligtvis i rätt
+            bilar omfattas av 12 månaders garanti. Servar du bilen hos Nordic
+            American Motors ingår alltid en kostnadsfri lånebil — naturligtvis i rätt
             stil.
           </p>
           <p>
             Även efter garantitiden finns vi tillgängliga. Bilar köpta hos oss
             får 20 % rabatt vid eventuella problem, och fram tills bilen är 10
-            år gammal garanterar vi att The Wrangler alltid är minst 10 %
+            år gammal garanterar vi att Nordic American Motors alltid är minst
+            10 %
             billigare än andra aktörer.
           </p>
         </div>
@@ -250,8 +251,8 @@ export default function AboutPage() {
           <h2>Jeep Wrangler förtjänar sin egen scen.</h2>
           <p>
             Jeep Wrangler är en legend, men ofta hamnar den bland många andra
-            fordon eller importeras med osäker historik. The Wrangler förändrar
-            det — vi väcker legenden till liv igen och gör den tillgänglig för
+            fordon eller importeras med osäker historik. Nordic American Motors
+            förändrar det — vi väcker legenden till liv igen och gör den tillgänglig för
             fler, precis som det en gång var tänkt.
           </p>
           <div className={styles.buttons}>

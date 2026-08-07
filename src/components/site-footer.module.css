@@ -6,30 +6,11 @@
   background: #070a0d;
 }
 
-.logo {
-  font-family: Oswald, sans-serif;
-  text-transform: uppercase;
-  line-height: 0.88;
-}
-
-.logo span {
+.logo img {
   display: block;
-  font-size: 11px;
-  letter-spacing: 2px;
-}
-
-.logo strong {
-  display: block;
-  font-size: 27px;
-  letter-spacing: 1px;
-}
-
-.logo em {
-  display: block;
-  color: var(--red);
-  font-size: 12px;
-  font-style: normal;
-  letter-spacing: 1px;
+  width: 193px;
+  max-width: 100%;
+  height: auto;
 }
 
 .footer h4 {

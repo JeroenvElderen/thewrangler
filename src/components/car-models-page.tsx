@@ -54,7 +54,7 @@ export default function CarModelsPage({
       <section className={styles.hero}>
         <Image
           src="/gmc-header.png"
-          alt="Amerikansk pickup utanför The Wrangler"
+          alt="Amerikansk pickup utanför Nordic American Motors"
           fill
           priority
           sizes="100vw"

@@ -37,15 +37,15 @@ export const activity = [
   ["Jane Smith", "Changed page text", "Homepage · Hero Section", "May 18, 2024 09:15 AM"],
   ["Admin", "Added car", "Jeep Gladiator 2023", "May 17, 2024 04:22 PM"],
   ["Mika Johnson", "Updated page text", "About Us Page", "May 17, 2024 11:03 AM"],
-  ["Sarah Williams", "Uploaded media", "wrangler-3.jpg", "May 16, 2024 03:22 PM"],
+  ["Sarah Williams", "Uploaded media", "NordicAmericanMotors_logo.svg", "May 16, 2024 03:22 PM"],
 ];
 
-export const mediaAssets = ["/car1.png", "/car2.png", "/car3.png", "/car4.png", "/car5.png", "/Wrangler_MasterLogo.png"];
+export const mediaAssets = ["/car1.png", "/car2.png", "/car3.png", "/car4.png", "/car5.png", "/NordicAmericanMotors_logo.svg"];
 
 export const users = [
-  ["Admin", "admin@thewrangler.com", "Administrator", "Active"],
-  ["Jane Smith", "jane@thewrangler.com", "Editor", "Active"],
-  ["Mika Johnson", "mika@thewrangler.com", "Editor", "Active"],
-  ["Sarah Williams", "sarah@thewrangler.com", "Viewer", "Active"],
-  ["Tom Brown", "tom@thewrangler.com", "Viewer", "Inactive"],
+  ["Admin", "admin@nordicamericanmotors.se", "Administrator", "Active"],
+  ["Jane Smith", "jane@nordicamericanmotors.se", "Editor", "Active"],
+  ["Mika Johnson", "mika@nordicamericanmotors.se", "Editor", "Active"],
+  ["Sarah Williams", "sarah@nordicamericanmotors.se", "Viewer", "Active"],
+  ["Tom Brown", "tom@nordicamericanmotors.se", "Viewer", "Inactive"],
 ];

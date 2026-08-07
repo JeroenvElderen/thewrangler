@@ -154,7 +154,7 @@ export default function WorkshopPage() {
       <section className={styles.hero}>
         <Image
           src="/dodge5.png"
-          alt="Amerikansk pickup i The Wrangler verkstad"
+          alt="Amerikansk pickup i Nordic American Motors verkstad"
           fill
           priority
           sizes="100vw"
@@ -212,7 +212,7 @@ export default function WorkshopPage() {
         <div className={styles.shopImage}>
           <Image
             src="/car5.png"
-            alt="The Wrangler servicehall med verktyg och amerikanska bilar"
+            alt="Nordic American Motors servicehall med verktyg och amerikanska bilar"
             fill
             sizes="(max-width: 900px) 100vw, 42vw"
           />

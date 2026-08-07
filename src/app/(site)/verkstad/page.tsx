@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import WorkshopPage from "@/components/workshop-page";
 
 export const metadata: Metadata = {
-  title: "Verkstad | The Wrangler",
+  title: "Verkstad | Nordic American Motors",
   description:
-    "Boka service, reparationer, diagnostik och customarbete för amerikanska trucks hos The Wrangler.",
+    "Boka service, reparationer, diagnostik och customarbete för amerikanska trucks hos Nordic American Motors.",
 };
 
 export default function Verkstad() {

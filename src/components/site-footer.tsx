@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Mail, MapPin, Phone } from "lucide-react";
 import styles from "./site-footer.module.css";
@@ -20,9 +21,12 @@ export default function SiteFooter() {
   return (
     <footer className={styles.footer}>
       <div className={styles.logo}>
-        <span>The</span>
-        <strong>Wrangler</strong>
-        <em>Amerikanska bilar</em>
+        <Image
+          src="/NordicAmericanMotors_logo.svg"
+          alt="Nordic American Motors"
+          width={193}
+          height={125}
+        />
       </div>
       <nav aria-label="Snabblänkar">
         <h4>Snabblänkar</h4>
@@ -46,7 +50,7 @@ export default function SiteFooter() {
           <Phone size={14} aria-hidden="true" /> +46 76 774 25 02
         </p>
         <p>
-          <Mail size={14} aria-hidden="true" /> info@thewrangler.se
+          <Mail size={14} aria-hidden="true" /> info@nordicamericanmotors.se
         </p>
         <p>
           <MapPin size={14} aria-hidden="true" /> Stockholm, Sweden

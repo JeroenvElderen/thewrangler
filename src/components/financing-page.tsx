@@ -81,7 +81,7 @@ export default function FinancingPage() {
       <section className={styles.hero}>
         <Image
           src="/dodge1.png"
-          alt="Black RAM truck outside The Wrangler dealership"
+          alt="Black RAM truck outside Nordic American Motors dealership"
           fill
           priority
           sizes="100vw"

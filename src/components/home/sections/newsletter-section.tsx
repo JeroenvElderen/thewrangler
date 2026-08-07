@@ -15,7 +15,7 @@ export function NewsletterSection() {
       </div>
       <div className={styles.contactCards}>
         <a href="tel:+46767742502"><Phone aria-hidden="true" /><span>+46 76 774 25 02</span></a>
-        <a href="mailto:info@thewrangler.se"><Mail aria-hidden="true" /><span>info@thewrangler.se</span></a>
+        <a href="mailto:info@nordicamericanmotors.se"><Mail aria-hidden="true" /><span>info@nordicamericanmotors.se</span></a>
         <Link href="/contact"><MapPin aria-hidden="true" /><span>Boka besök eller service</span></Link>
       </div>
     </section>

@@ -143,7 +143,7 @@ export default function UsersManager({ users }: UsersManagerProps) {
             </label>
             <label>
               Email
-              <input name="email" type="email" required placeholder="jane@thewrangler.com" defaultValue={editingUser?.email} disabled={Boolean(editingUser)} />
+              <input name="email" type="email" required placeholder="jane@nordicamericanmotors.se" defaultValue={editingUser?.email} disabled={Boolean(editingUser)} />
             </label>
             <label>
               Role
